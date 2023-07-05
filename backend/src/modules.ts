@@ -1,5 +1,3 @@
-import { AuthModule } from "./auth/auth.module";
+import { AuthModule } from './modules/auth/auth.module';
 
-export const appModules=[
-    AuthModule
-]
+export const appModules = [AuthModule];

@@ -2,13 +2,13 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { appModules } from './modules';
-import { EnvConfiguration } from './config/envConfig';
+import { EnvConfiguration } from './common/config/envConfig';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load:[EnvConfiguration]
+      load: [EnvConfiguration],
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',

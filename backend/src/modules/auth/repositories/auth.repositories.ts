@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { BaseRepository } from 'src/shared/repositories';
+import { BaseRepository } from 'src/modules/shared/repositories';
 import { AuthEntity } from '../entities/auth.entity';
 
 @Injectable()
