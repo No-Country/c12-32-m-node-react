@@ -1,34 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <HashRouter>
+      <header>
+        <nav className='flex items-center  justify-between px-10 bg-blue-300 h-20  '>
+          <div className="Logo bg-black h-16 w-16 flex items-center justify-center text-white">
+            <span>LOGO</span>
+          </div>
+          <ul className='flex  space-x-10 text-lg' >
+            <li><a href="">Inicio</a></li>
+            <li><a href="">Anuncios</a></li>
+            <li><a href=""></a>¡Como Funciona?</li>
+            <li><a href="">Adocta!</a></li>
+          </ul>
+          <button className='border-2 rounded-full h-10 w-48  bg-slate-400 color- text-white font-semibold'>
+            Crear Anuncio
+          </button>
+        </nav>
+      </header>
+      <Routes>
+        <Route path='/' />
+      </Routes>
+    </HashRouter>
   )
 }
 
