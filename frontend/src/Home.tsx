@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import chicaperro from "./assets/chicaperro.jpg"
 function Home() {
@@ -10,7 +9,7 @@ function Home() {
           backgroundImage: `url(${chicaperro})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          borderRadius: "0 50% 50% 0",
+          borderRadius: "0 45% 45% 0",
         }}
       ></div>
       {/* Código del contenido 1 */}
