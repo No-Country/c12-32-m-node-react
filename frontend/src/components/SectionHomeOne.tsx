@@ -1,6 +1,6 @@
 import React from 'react';
 import { IoIosArrowDown } from "react-icons/io";
-import chicaperro from "./assets/chicaperro.jpg";
+import chicaperro from "../assets/chicaperro.jpg";
 
 const SectionHomeOne = () => {
   return (

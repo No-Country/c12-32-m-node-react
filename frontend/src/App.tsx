@@ -28,10 +28,9 @@ function App() {
             Crear Anuncio
           </button>
         </nav>
-        <Home />
       </header>
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<Home/>} />
       </Routes>
     </HashRouter>
   );
