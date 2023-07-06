@@ -32,13 +32,13 @@ const SectionHomeThree = () => {
       <div className="flex flex-col items-center bg-gray-200">
         {/* Código del contenido 3 */}
         <h1
-          className="text-5xl font-semibold text-center mb-4"
+          className="text-5xl font-semibold  text-center mb-4"
           data-aos="fade-down"
           data-aos-delay="500"
         >
           ¿COMO FUNCIONA PET SOCIETY?
         </h1>
-        <div className="flex justify-between w-[70rem] pt-[4rem]">
+        <div className="flex justify-between w-[85rem] pl-[5rem] pt-[4rem]">
           <p
             className="text-3xl font-semibold"
             data-aos="fade-down"
@@ -54,8 +54,8 @@ const SectionHomeThree = () => {
             ¡Si tienes una MASCOTA para adopción!
           </p>
         </div>
-        <div className="p-4 mt-4 flex justify-between w-[75rem]">
-          <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 w-[24rem]">
+        <div className="p-4 mt-4 flex justify-between w-[90rem]">
+          <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 ml-[5rem] w-[24rem]">
             Crea un anuncio con la mayor información <br />
             para una búsqueda con mayor precisión
           </p>
@@ -65,16 +65,16 @@ const SectionHomeThree = () => {
           </p>
         </div>
 
-        <div className="mt-[-1/2rem] flex justify-center w-[59rem]">
-          <p className="w-1/2 text-center pr-[20rem]">
-            <CgArrowLongDown className="text-4xl mx-auto" />
+        <div className="mt-[-1/2rem] flex justify-center w-[90rem]">
+          <p className="w-1/2 text-center pr-[20rem] ml-[5rem]">
+            <CgArrowLongDown className="text-4xl mx-auto ml-[11rem]" />
           </p>
           <p className=" w-1/2 text-center pl-[-10rem]">
-            <CgArrowLongDown className="text-4xl mx-auto" />
+            <CgArrowLongDown className="text-4xl mx-auto ml-[18rem]" />
           </p>
         </div>
-        <div className="p-4 mb-0 flex justify-between w-[75rem]">
-          <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 w-[24rem]">
+        <div className="p-4 mb-0 flex justify-between w-[90rem]">
+          <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 w-[24rem] ml-[5rem]">
             Crea un anuncio con la mayor información <br />
             para una búsqueda con mayor precisión
           </p>
@@ -83,16 +83,16 @@ const SectionHomeThree = () => {
             para una búsqueda con mayor precisión
           </p>
         </div>
-        <div className="mt-[-1/2rem] flex justify-center w-[59rem]">
-          <p className="w-1/2 text-center pr-[20rem]">
-            <CgArrowLongDown className="text-4xl mx-auto" />
+        <div className="mt-[-1/2rem] flex justify-center w-[90rem]">
+          <p className="w-1/2 text-center pr-[20rem] ">
+            <CgArrowLongDown className="text-4xl mx-auto ml-[16rem] " />
           </p>
           <p className=" w-1/2 text-center pl-[-10rem]">
-            <CgArrowLongDown className="text-4xl mx-auto" />
+            <CgArrowLongDown className="text-4xl mx-auto ml-[21rem]" />
           </p>
         </div>
-        <div className="p-4 mb-0 flex justify-between w-[75rem]">
-          <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 w-[24rem]">
+        <div className="p-4 mb-0 flex justify-between w-[90rem]">
+          <p className="border border-gray-500 bg-gray-400 rounded-full ml-[5rem] p-4 pl-10 w-[24rem]">
             Crea un anuncio con la mayor información <br />
             para una búsqueda con mayor precisión
           </p>
@@ -101,7 +101,7 @@ const SectionHomeThree = () => {
             para una búsqueda con mayor precisión
           </p>
         </div>
-        <div className="flex flex-col items-center bg-gray-200 pt-[10rem]">
+        <div className="flex flex-col items-center bg-gray-200 pt-[6rem] ">
           <p
             className="mr-[10rem] text-3xl font-semibold text-center mb-4"
             data-aos="fade-down"
