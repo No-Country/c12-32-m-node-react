@@ -27,7 +27,10 @@ const SectionHomeTwo = () => {
         ></path>
       </svg>
       {/* Código del contenido 2 */}
-      <div className="flex justify-center items-center h-screen bg-customBlue">
+      <div
+        id="quieneSomos"
+        className="flex justify-center items-center h-screen bg-customBlue"
+      >
         <div className="text-left">
           <h1
             className="text-6xl font-semibold"
