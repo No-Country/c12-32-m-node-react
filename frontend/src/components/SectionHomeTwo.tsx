@@ -1,23 +1,69 @@
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
+
 const SectionHomeTwo = () => {
+
+  useEffect(() => {
+    Aos.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
+
   return (
-    <div className="flex flex-col items-center">
+    <>
+      {/* Código de waves */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        style={{ marginTop: "-200px" }}
+      >
+        <path
+          fill="#84a7ae"
+          fillOpacity="1"
+          d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+        ></path>
+      </svg>
       {/* Código del contenido 2 */}
-      {/* <h1 className="text-5xl font-semibold text-center mb-4">
-        COMO FUNCIONA PET SOCIETY?
-      </h1>
-      <div className="flex justify-between w-1/2">
-        <p className="">Si tu mascota se perdió!</p>
-        <p className="">Si tienes una MASCOTA para adopción!</p>
+      <div className="flex justify-center items-center h-screen bg-customBlue">
+        <div className="text-left">
+          <h1
+            className="text-6xl font-semibold"
+            data-aos="fade-down"
+            data-aos-delay="500"
+          >
+            ¿QUIÉNES SOMOS?
+          </h1>
+          <p className="text-2xl font-semibold pt-8 mb-[10rem]">
+            En PET SOCIETY, valoramos la empatía,
+            <br />
+            la solidaridad y el trabajo en equipo.
+            <br />
+            <br />
+            Facilitamos la comunicación y el intercambio
+            <br />
+            de información entre los dueños de las mascotas perdidas y las
+            <br />
+            personas que pueden haber visto o tenido contacto con ellas.
+            <br />
+            <br />
+            También nos encargamos de que las MASCOTAS
+            <br />
+            sin hogar puedan tener uno.
+            <br />
+          </p>
+        </div>
+        <div
+          className="w-64 h-64 ml-[10rem] mb-20 bg-gray-200 p-4 rounded-lg shadow-lg"
+          data-aos="fade-down"
+          data-aos-delay="800"
+        >
+          <p>Imagen ilustrativa</p>
+        </div>
       </div>
-      <div className="p-4 mt-4 flex justify-between" style={{ width: "50%" }}>
-        <p className="border border-gray-500 w-1/5 ">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt
-        </p>
-        <p className="border border-gray-500 w-1/4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt
-        </p>
-      </div> */}
-    </div>
+    </>
   );
 };
 
