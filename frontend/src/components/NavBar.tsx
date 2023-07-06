@@ -1,6 +1,4 @@
-
-
-export const NavBar = () => {
+const NavBar = () => {
     return (
         <header>
             <nav className="flex items-center  justify-between px-10 bg-gray-300 h-20  ">
@@ -28,4 +26,6 @@ export const NavBar = () => {
         </header>
     );
 };
+
+export default NavBar;
 
