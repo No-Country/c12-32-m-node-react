@@ -1,6 +1,6 @@
-import { HashRouter, Routes, Route } from 'react-router-dom'
-import './App.css'
-import Home from './Home';
+import { HashRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -28,13 +28,12 @@ function App() {
             Crear Anuncio
           </button>
         </nav>
-        <Home/>
       </header>
       <Routes>
-        <Route path="/" />
+        <Route path="/" element={<Home/>} />
       </Routes>
     </HashRouter>
   );
 }
 
-export default App
+export default App;
