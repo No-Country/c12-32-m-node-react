@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import chicaperro from "../assets/chicaperro.jpg";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 
 const SectionHomeOne = () => {
+
+    useEffect(() => {
+      Aos.init({
+        duration: 1800,
+        offset: 100,
+      });
+    }, []);
+  
   return (
     <div>
       <div className="flex">
@@ -17,7 +28,11 @@ const SectionHomeOne = () => {
         ></div>
         {/* Código del contenido 1 */}
         <div className="flex flex-col justify-center items-center w-1/2 p-8">
-          <h1 className="text-5xl font-semibold mb-4">
+          <h1
+            className="text-5xl font-semibold mb-4"
+            data-aos="fade-down"
+            data-aos-delay="500"
+          >
             ¡ENCONTREMOS TU MASCOTA!
           </h1>
           <p className="text-2xl font-semibold text-gray-600 text-center">

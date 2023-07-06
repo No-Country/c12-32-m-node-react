@@ -12,16 +12,16 @@ const NavBar = () => {
             <a href="">Inicio</a>
           </li>
           <li>
-            <a href="">¿Como Funciona?</a>
+            <a href="">¿Cómo Funciona?</a>
           </li>
           <li>
             <a href="">Anuncios</a>
           </li>
           <li>
-            <a href="">¡Adopta!</a>
+            <a href="">¡Adópta!</a>
           </li>
         </ul>
-        <button className="border-3 rounded-full h-[50px] w-48 bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold">
+        <button className="border-3 rounded-full h-[45px] w-48 bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold">
           Crear Anuncio
         </button>
       </nav>
