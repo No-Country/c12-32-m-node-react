@@ -1,3 +1,7 @@
 import { BasedEntity } from 'src/modules/shared/entities/base.entity';
+import { Entity, Column } from 'typeorm';
 
-export class AuthEntity extends BasedEntity {}
+@Entity({name: 'users'})
+export class UserEntity extends BasedEntity {
+  
+}
