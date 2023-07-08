@@ -9,7 +9,7 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: pet
+      POSTGRES_DB: pets
     container_name: nocountry
     volumes:
       - ./postgres:/var/lib/postgresql/data
