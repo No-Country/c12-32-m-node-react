@@ -1,5 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { BasedEntity } from '../../shared/entities/base.entity';
+import { PetsImagesEntity } from './pets-images.entity';
+import { PostEntity } from 'src/modules/posts/entities/post.entity';
 
 @Entity({ name: 'pets' })
 export class PetsEntity extends BasedEntity {
@@ -23,4 +25,10 @@ export class PetsEntity extends BasedEntity {
 
   @Column({ type: 'integer', nullable: false })
   race: string;
+
+  @OneToMany(()=> PetsImagesEntity,(images)=>images.pets)
+  images:PetsImagesEntity[]
+
+  @OneToMany(()=> PostEntity,(post)=>post.pets)
+  posts:[]
 }

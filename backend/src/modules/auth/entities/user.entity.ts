@@ -1,5 +1,7 @@
+import { PostEntity } from 'src/modules/posts/entities/post.entity';
+import { PostCommentEntity } from 'src/modules/posts/entities/post_comment.entity';
 import { BasedEntity } from 'src/modules/shared/entities/base.entity';
-import { Column, Entity } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 
 @Entity({ name: 'users' })
 export class UserEntity extends BasedEntity {
@@ -26,4 +28,11 @@ export class UserEntity extends BasedEntity {
 
   @Column({ type: 'text', array: true, default: ['user'] })
   role: string[];
+
+
+  @OneToMany(()=> PostEntity,(post)=>post.user)
+  posts:PostEntity[]
+  @OneToMany(()=> PostCommentEntity,(comment)=>comment.user)
+  comments:PostCommentEntity[]
+
 }
