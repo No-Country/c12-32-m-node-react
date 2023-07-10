@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
@@ -19,16 +27,16 @@ export class AuthController {
 
   @Get(':id')
   findOneBy(@Param('id') id: string) {
-    return this.authService.findOneBy({id});
+    return this.authService.findOneBy({ id });
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-    return this.authService.update({id}, updateAuthDto);
+    return this.authService.update({ id }, updateAuthDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.authService.delete({id});
+    return this.authService.delete({ id });
   }
 }
