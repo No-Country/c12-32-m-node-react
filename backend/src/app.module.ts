@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { appModules } from './modules';
 import { EnvConfiguration } from './common/config/envConfig';
+import { PetsModule } from './modules/pets/pets.module';
+import { PostsModule } from './modules/posts/posts.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { EnvConfiguration } from './common/config/envConfig';
       synchronize: true,
     }),
     ...appModules,
+    PetsModule,
+    PostsModule,
   ],
 })
 export class AppModule {}
