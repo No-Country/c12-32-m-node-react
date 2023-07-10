@@ -8,16 +8,18 @@ import {
   Delete,
 } from '@nestjs/common';
 import { PetsService } from './pets.service';
-import { CreatePetDto } from './dto/create-pet.dto';
-import { UpdatePetDto } from './dto/update-pet.dto';
+import { CreatePetsDto } from './dto/create-pets.dto';
+import { UpdatePetsDto } from './dto/update-pets.dto';
+import { ApiTags } from '@nestjs/swagger';
 
-@Controller('pets')
+@ApiTags('Registro - Pets')
+@Controller('api/v1/pets')
 export class PetsController {
   constructor(private readonly petsService: PetsService) {}
 
   @Post()
-  create(@Body() createPetDto: CreatePetDto) {
-    return this.petsService.create(createPetDto);
+  create(@Body() createAuthDto: CreatePetsDto) {
+    return this.petsService.create(createAuthDto);
   }
 
   @Get()
@@ -26,17 +28,17 @@ export class PetsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.petsService.findOne(+id);
+  findOneBy(@Param('id') id: string) {
+    return this.petsService.findOneBy({ id });
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updatePetDto: UpdatePetDto) {
-    return this.petsService.update(+id, updatePetDto);
+  update(@Param('id') id: string, @Body() updateAuthDto: UpdatePetsDto) {
+    return this.petsService.update({ id }, updateAuthDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.petsService.remove(+id);
+    return this.petsService.delete({ id });
   }
 }
