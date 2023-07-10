@@ -26,9 +26,9 @@ export class PetsEntity extends BasedEntity {
   @Column({ type: 'integer', nullable: false })
   race: string;
 
-  @OneToMany(()=> PetsImagesEntity,(images)=>images.pets)
-  images:PetsImagesEntity[]
+  @OneToMany(() => PetsImagesEntity, (images) => images.pets)
+  images: PetsImagesEntity[];
 
-  @OneToMany(()=> PostEntity,(post)=>post.pets)
-  posts:[]
+  @OneToMany(() => PostEntity, (post) => post.pets)
+  posts: [];
 }
