@@ -39,7 +39,7 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
                     </section>
                     <section className="my-4">
                         <label htmlFor="phone">Teléfono</label >
-                        <input type="number" id="phone"
+                        <input type="number" id="phone" inputMode="numeric"
                             className="w-full rounded-lg bg-white h-7" />
                     </section>
                     <section className="my-4">

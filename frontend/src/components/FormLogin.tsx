@@ -3,6 +3,7 @@ import imgGoogle from '../assets/googleImg.png'
 import { useState } from "react";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFillEyeSlashFill } from "react-icons/bs";
+import axios from "axios";
 
 interface LoginProps {
     verifyAccess: () => void
@@ -12,8 +13,10 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
 
     const { handleSubmit, register } = useForm()
 
-    const submit = () => {
-        console.log('tested');
+    const submit = (data: object) => {
+        console.log(data);
+        axios.post('http://localhost:7500/api/v1/user-register/login', data)
+            .then(res => console.log(res.data))
     }
 
     const [showPassword, setShowPassword] = useState(true);
