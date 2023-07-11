@@ -2,15 +2,83 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
+import * as bcrypt from 'bcrypt';
+
 import { BaseRepository } from 'src/modules/shared/repositories';
 import { UserEntity } from '../entities/user.entity';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { RespuestaService } from '../../shared/services';
+import { LoginUserDto } from '../dto/login-user.dto';
 
 @Injectable()
 export class UserRepository extends BaseRepository<UserEntity> {
+  _main = 'UserRepository';
   constructor(
     @InjectRepository(UserEntity)
     private readonly userEntity: Repository<UserEntity>,
+    private respuestaService: RespuestaService,
   ) {
     super(userEntity);
+  }
+  async createUserEncrypt(createUserDto: CreateUserDto) {
+    const ruta = this._main + ' /createUserEncrypt';
+    try {
+      const { password, ...userData } = createUserDto;
+      const user = this.userEntity.create({
+        ...userData,
+        password: bcrypt.hashSync(password, 10),
+      });
+      const resp = await this.userEntity.save(user);
+      if (!resp) {
+        return this.respuestaService.respuestaHttp(
+          false,
+          null,
+          ruta,
+          'Error en el Registro',
+        );
+      }
+      return this.respuestaService.respuestaHttp(
+        true,
+        resp,
+        ruta,
+        'Registro Exitoso',
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async loginUser(loginDto: LoginUserDto) {
+    const ruta = this._main + ' /loginUser';
+    try {
+      const { password, email } = loginDto;
+
+      const user = await this.userEntity.findOne({
+        where: { email },
+        select: { email: true, password: true, id: true },
+      });
+
+      if (!user)
+        return this.respuestaService.respuestaHttp(
+          false,
+          null,
+          ruta,
+          'Error en el Usuario',
+        );
+      if (!bcrypt.compareSync(password, user.password))
+        return this.respuestaService.respuestaHttp(
+          false,
+          null,
+          ruta,
+          'Error en Credenciales',
+        );
+      delete user.password;
+      return this.respuestaService.respuestaHttp(
+        true,
+        user,
+        ruta,
+        'Login Exitoso',
+      );
+    } catch (error) {}
   }
 }

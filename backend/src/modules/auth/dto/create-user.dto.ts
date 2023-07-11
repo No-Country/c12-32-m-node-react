@@ -35,6 +35,7 @@ export class CreateUserDto {
     message:
       'The password must have a Uppercase, lowercase letter and a number',
   })
+  @ApiProperty({ description: 'correo electronico' })
   password: string;
 
   @IsString()

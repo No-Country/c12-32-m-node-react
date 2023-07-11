@@ -11,7 +11,7 @@ export class UserEntity extends BasedEntity {
   @Column({ type: 'varchar', nullable: true, name: 'last_name' })
   lastName: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar', nullable: false, unique: true })
   email: string;
 
   @Column({ type: 'varchar', nullable: false })
