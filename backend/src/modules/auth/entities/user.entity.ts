@@ -29,10 +29,8 @@ export class UserEntity extends BasedEntity {
   @Column({ type: 'text', array: true, default: ['user'] })
   role: string[];
 
-
-  @OneToMany(()=> PostEntity,(post)=>post.user)
-  posts:PostEntity[]
-  @OneToMany(()=> PostCommentEntity,(comment)=>comment.user)
-  comments:PostCommentEntity[]
-
+  @OneToMany(() => PostEntity, (post) => post.user)
+  posts: PostEntity[];
+  @OneToMany(() => PostCommentEntity, (comment) => comment.user)
+  comments: PostCommentEntity[];
 }
