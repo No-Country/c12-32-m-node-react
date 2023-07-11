@@ -2,9 +2,7 @@ import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-
 const SectionHomeTwo = () => {
-
   useEffect(() => {
     Aos.init({
       duration: 1800,
@@ -28,7 +26,7 @@ const SectionHomeTwo = () => {
       </svg>
       {/* Código del contenido 2 */}
       <div
-        id="quieneSomos"
+        id="quienesSomos"
         className="flex justify-center items-center h-screen bg-customBlue"
       >
         <div className="text-left">

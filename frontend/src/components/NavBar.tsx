@@ -1,23 +1,30 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import SectionHomeOne from "./SectionHomeOne";
 import SectionHomeTwo from "./SectionHomeTwo";
 import SectionHomeThree from "./SectionHomeThree";
+import Footer from "./Footer";
+import userRegister from "../assets/userRegister.png";
+import { Link } from "react-router-dom";
+import SectionHomeFour from "./SectionHomeFour";
 
 const NavBar = () => {
-  const [shouldShowSections, setShouldShowSections] = useState(false);
+     const [shouldShowSections, setShouldShowSections] = useState(false);
 
-  //HandleClick que si se clickea algo de la navBar se setea en true el estado
-  const handleMenuClick = () => {
-    setShouldShowSections(true);
-  };
+     const handleMenuClick = () => {
+       setShouldShowSections(true);
+     };
 
+     const handleCreateAdClick = () => {
+       setShouldShowSections(false);
+     };
   return (
     <header>
-      <nav className="flex items-center justify-between px-10 bg-gray-300 h-20">
+      <nav className="flex items-center  justify-between px-10 bg-customBgNavBar h-20  ">
         <div className="Logo bg-black h-16 w-16 flex items-center justify-center text-white">
           <span>LOGO</span>
         </div>
-        <ul className="flex space-x-10 text-lg">
+        <ul className="flex  space-x-10 text-lg">
           <li>
             <a
               href="#inicio"
@@ -31,6 +38,7 @@ const NavBar = () => {
             <a
               href="#comoFunciona"
               className="hover:text-white transition-all duration-300"
+              onClick={handleMenuClick}
             >
               ¿Cómo Funciona?
             </a>
@@ -41,21 +49,43 @@ const NavBar = () => {
             </a>
           </li>
           <li>
-            <a href="" className="hover:text-white transition-all duration-300">
+            <NavLink
+              to="/adoption"
+              className="hover:text-white transition-all duration-300"
+              onClick={handleCreateAdClick}
+            >
               ¡Adópta!
-            </a>
+            </NavLink>
           </li>
         </ul>
-        <button className="border-3 rounded-full h-[45px] w-48 bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold">
-          Crear Anuncio
-        </button>
+        <section className="flex gap-10">
+          <NavLink to="/form">
+            <button
+              className="border-3 rounded-full h-[45px] w-48 bg-bottonNavBar transition-all duration-300 text-black font-semibold text-lg"
+              onClick={handleCreateAdClick}
+            >
+              Crear Anuncio
+            </button>
+          </NavLink>
+          <div className="bg-white w-12 h-12 rounded-full">
+            <Link to={"/Login"}>
+              <img src={userRegister} alt="" />
+            </Link>
+            {/* <NavLink to="/profile">
+              <div className="flex items-center justify-center ">
+                <p>Info del Perfil</p>
+              </div>
+            </NavLink> */}
+          </div>
+        </section>
       </nav>
-      {/* Muestro solo los componentes cuando hagan clic en uno de ellos sino no se muestran */}
       {shouldShowSections && (
         <>
           <SectionHomeOne />
           <SectionHomeTwo />
-          <SectionHomeThree />
+                  <SectionHomeThree />
+                  <SectionHomeFour />
+          
         </>
       )}
     </header>

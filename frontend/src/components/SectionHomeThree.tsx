@@ -4,15 +4,13 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 
-
 const SectionHomeThree = () => {
-
- useEffect(() => {
-   Aos.init({
-     duration: 1800,
-     offset: 100,
-   });
- }, []);
+  useEffect(() => {
+    Aos.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
 
   return (
     <>
@@ -25,7 +23,7 @@ const SectionHomeThree = () => {
       >
         <path
           fill="#e5e7eb"
-          fill-opacity="1"
+          fillOpacity="1"
           d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         ></path>
       </svg>
@@ -103,14 +101,14 @@ const SectionHomeThree = () => {
         </div>
         <div className="flex flex-col items-center bg-gray-200 pt-[6rem] ">
           <p
-            className="mr-[10rem] text-3xl font-semibold text-center mb-4"
+            className="ml-[-2rem] text-3xl font-semibold text-center mb-4"
             data-aos="fade-down"
             data-aos-delay="500"
           >
             ¡Si sabes info de alguna MASCOTA!
           </p>
         </div>
-        <div className="p-4 mt-4 mr-[10rem] flex justify-center">
+        <div className="p-4 mt-4 ml-[-1rem] flex justify-center">
           <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 w-[24rem]">
             Busca en{" "}
             <Link to={"/anuncios"} className="text-gray-300">
@@ -121,13 +119,13 @@ const SectionHomeThree = () => {
           </p>
         </div>
 
-        <div className="mt-[-1/2rem] mr-[10rem]">
+        <div className="mt-[-1/2rem] mr-[1rem]">
           <p className=" text-center">
             <CgArrowLongDown className="text-4xl mx-auto" />
           </p>
         </div>
-        <div className="p-4 mb-0 flex justify-center w-[75rem] mr-[10rem]">
-          <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 w-[24rem]">
+        <div className="p-4 mb-0 flex justify-center w-[75rem] ml-[-1rem]">
+          <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 w-[24rem] mb-80">
             Comentale al dueño lo que sabes, y
             <br />
             dejale tu contacto
