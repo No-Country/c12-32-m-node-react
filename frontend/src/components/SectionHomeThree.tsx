@@ -7,12 +7,12 @@ import { useEffect } from "react";
 
 const SectionHomeThree = () => {
 
- useEffect(() => {
-   Aos.init({
-     duration: 1800,
-     offset: 100,
-   });
- }, []);
+  useEffect(() => {
+    Aos.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
 
   return (
     <>
@@ -20,7 +20,7 @@ const SectionHomeThree = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
-        style={{ marginTop: "-400px" }}
+        style={{ marginTop: "-380px" }}
         className="w-full"
       >
         <path
@@ -120,13 +120,12 @@ const SectionHomeThree = () => {
             de la cual tengas información
           </p>
         </div>
-
         <div className="mt-[-1/2rem] mr-[10rem]">
           <p className=" text-center">
             <CgArrowLongDown className="text-4xl mx-auto" />
           </p>
         </div>
-        <div className="p-4 mb-0 flex justify-center w-[75rem] mr-[10rem]">
+        <div className="p-4 mb-0 flex justify-center w-[75rem] mr-[10rem] z-10">
           <p className="border border-gray-500 bg-gray-400 rounded-full p-4 pl-10 w-[24rem]">
             Comentale al dueño lo que sabes, y
             <br />

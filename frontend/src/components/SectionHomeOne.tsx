@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import chicaperro from "../assets/chicaperro.jpg";
 import Aos from "aos";
@@ -6,14 +6,13 @@ import "aos/dist/aos.css";
 
 
 const SectionHomeOne = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
 
-    useEffect(() => {
-      Aos.init({
-        duration: 1800,
-        offset: 100,
-      });
-    }, []);
-  
   return (
     <div>
       <div className="flex">
