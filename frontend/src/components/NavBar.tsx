@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import SectionHomeOne from "./SectionHomeOne";
 import SectionHomeTwo from "./SectionHomeTwo";
 import SectionHomeThree from "./SectionHomeThree";
-import Footer from "./Footer";
 import userRegister from "../assets/userRegister.png";
 import { Link } from "react-router-dom";
 import SectionHomeFour from "./SectionHomeFour";
@@ -67,7 +66,10 @@ const NavBar = () => {
               Crear Anuncio
             </button>
           </NavLink>
-          <div className="bg-white w-12 h-12 rounded-full">
+          <div
+            className="bg-white w-12 h-12 rounded-full"
+            onClick={handleCreateAdClick}
+          >
             <Link to={"/Login"}>
               <img src={userRegister} alt="" />
             </Link>
@@ -83,9 +85,8 @@ const NavBar = () => {
         <>
           <SectionHomeOne />
           <SectionHomeTwo />
-                  <SectionHomeThree />
-                  <SectionHomeFour />
-          
+          <SectionHomeThree />
+          <SectionHomeFour />
         </>
       )}
     </header>
