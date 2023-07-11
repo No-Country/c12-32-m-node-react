@@ -70,9 +70,9 @@ const NavBar = () => {
             className="bg-white w-12 h-12 rounded-full"
             onClick={handleCreateAdClick}
           >
-            <Link to={"/Login"}>
+            <NavLink to={"/Login"}>
               <img src={userRegister} alt="" />
-            </Link>
+            </NavLink>
             {/* <NavLink to="/profile">
               <div className="flex items-center justify-center ">
                 <p>Info del Perfil</p>
