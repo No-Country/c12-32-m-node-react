@@ -1,5 +1,6 @@
 import perroDuenio from "../../src/assets/perroDuenio.webp"
 import lostDog from "../../src/assets/lostDog.jpg"
+import { NavLink } from "react-router-dom";
 
 const Adoption = () => {
   return (
@@ -20,9 +21,11 @@ const Adoption = () => {
           alt="Foto Derecha"
           className="w-full lg:h-[90vh] h-[80vh] object-cover"
         />
-        <button className="lg:bg-black bg-navBarColor rounded-full text-white font-semibold lg:px-4 lg:py-4 py-3 mt-0 lg:w-70 md:w-96 w-[10rem] absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2  lg:hover:text-black lg:hover:bg-gray-200 lg:hover:opacity-70 transition duration-300">
-          BUSQUEDAS
-        </button>
+        <NavLink to="/missing-list">
+          <button className="lg:bg-black bg-navBarColor rounded-full text-white font-semibold lg:px-4 lg:py-4 py-3 mt-0 lg:w-70 md:w-96 w-[10rem] absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2  lg:hover:text-black lg:hover:bg-gray-200 lg:hover:opacity-70 transition duration-300">
+            BUSQUEDAS
+          </button>
+        </NavLink>
       </div>
     </div>
   );
