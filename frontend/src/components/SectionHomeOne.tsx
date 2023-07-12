@@ -6,7 +6,13 @@ import "aos/dist/aos.css";
 import { MdArrowUpward } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
-const SectionHomeOne = () => {
+interface SectionHomeProps {
+  handleCreateAdClick: () => void;
+}
+
+const SectionHomeOne: React.FC<SectionHomeProps> = ({
+  handleCreateAdClick,
+}) => {
   const [showButton, setShowButton] = useState(false);
 
   const handleClick = () => {
@@ -77,10 +83,11 @@ const SectionHomeOne = () => {
               <br />
               coméntanos y ayuda a que cada mascota esté en su HOGAR
               <br />
-              <NavLink to = {"/login"}>
+              <NavLink to="/login">
                 <button
                   className="py-2 px-10 rounded-full bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white mt-8"
                   style={{ letterSpacing: "0.1em" }}
+                  onClick={handleCreateAdClick}
                 >
                   ¡ÚNETE!
                 </button>

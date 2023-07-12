@@ -60,7 +60,7 @@ const NavBar = () => {
         <section className="flex gap-10">
           <NavLink to="/form">
             <button
-              className="border-3 rounded-full h-[45px] w-48 bg-bottonNavBar transition-all duration-300 text-black font-semibold text-lg"
+              className="border-3 rounded-full h-[45px] w-48 bg-bottonNavBar transition-all duration-300 text-black hover:text-white font-semibold text-lg"
               onClick={handleCreateAdClick}
             >
               Crear Anuncio
@@ -70,7 +70,7 @@ const NavBar = () => {
             className="bg-white w-12 h-12 rounded-full"
             onClick={handleCreateAdClick}
           >
-            <NavLink to={"/Login"}>
+            <NavLink to={"/login"}>
               <img src={userRegister} alt="" />
             </NavLink>
             {/* <NavLink to="/profile">
@@ -83,7 +83,7 @@ const NavBar = () => {
       </nav>
       {shouldShowSections && (
         <>
-          <SectionHomeOne />
+          <SectionHomeOne handleCreateAdClick={handleCreateAdClick} />
           <SectionHomeTwo />
           <SectionHomeThree />
           <SectionHomeFour />
