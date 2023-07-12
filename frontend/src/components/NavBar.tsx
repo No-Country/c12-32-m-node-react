@@ -4,7 +4,6 @@ import SectionHomeOne from "./SectionHomeOne";
 import SectionHomeTwo from "./SectionHomeTwo";
 import SectionHomeThree from "./SectionHomeThree";
 import userRegister from "../assets/userRegister.png";
-import { Link } from "react-router-dom";
 import SectionHomeFour from "./SectionHomeFour";
 
 const NavBar = () => {
