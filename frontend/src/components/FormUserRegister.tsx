@@ -6,7 +6,7 @@ interface RegisterProps {
 
 const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
     return (
-        <form className="h-full w-widthFormRegister bg-customBgRegister fixed top-20 right-0 ">
+        <form className="h-[70vh] w-widthFormRegister bg-customBgRegister fixed top-20 right-0 ">
             <h2 className="text-center text-3xl py-12">¡Regístrate!</h2 >
             <div className="flex">
                 <div className=" h-auto w-6/12 px-6">

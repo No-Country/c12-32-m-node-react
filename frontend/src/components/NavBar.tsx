@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import SectionHomeOne from "./SectionHomeOne";
 import SectionHomeTwo from "./SectionHomeTwo";
 import SectionHomeThree from "./SectionHomeThree";
-import Footer from "./Footer";
 import userRegister from "../assets/userRegister.png";
 import { Link } from "react-router-dom";
 import SectionHomeFour from "./SectionHomeFour";
@@ -61,16 +60,19 @@ const NavBar = () => {
         <section className="flex gap-10">
           <NavLink to="/form">
             <button
-              className="border-3 rounded-full h-[45px] w-48 bg-bottonNavBar transition-all duration-300 text-black font-semibold text-lg"
+              className="border-3 rounded-full h-[45px] w-48 bg-bottonNavBar transition-all duration-300 text-black hover:text-white font-semibold text-lg"
               onClick={handleCreateAdClick}
             >
               Crear Anuncio
             </button>
           </NavLink>
-          <div className="bg-white w-12 h-12 rounded-full">
-            <Link to={"/Login"}>
+          <div
+            className="bg-white w-12 h-12 rounded-full"
+            onClick={handleCreateAdClick}
+          >
+            <NavLink to={"/login"}>
               <img src={userRegister} alt="" />
-            </Link>
+            </NavLink>
             {/* <NavLink to="/profile">
               <div className="flex items-center justify-center ">
                 <p>Info del Perfil</p>
@@ -81,11 +83,10 @@ const NavBar = () => {
       </nav>
       {shouldShowSections && (
         <>
-          <SectionHomeOne />
+          <SectionHomeOne handleCreateAdClick={handleCreateAdClick} />
           <SectionHomeTwo />
-                  <SectionHomeThree />
-                  <SectionHomeFour />
-          
+          <SectionHomeThree />
+          <SectionHomeFour />
         </>
       )}
     </header>
