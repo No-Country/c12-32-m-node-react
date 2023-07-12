@@ -9,6 +9,8 @@ import { UserEntity } from '../entities/user.entity';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { RespuestaService } from '../../shared/services';
 import { LoginUserDto } from '../dto/login-user.dto';
+import { JwtPayload } from '../strategies';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class UserRepository extends BaseRepository<UserEntity> {
@@ -17,6 +19,7 @@ export class UserRepository extends BaseRepository<UserEntity> {
     @InjectRepository(UserEntity)
     private readonly userEntity: Repository<UserEntity>,
     private respuestaService: RespuestaService,
+    private readonly jwtService: JwtService,
   ) {
     super(userEntity);
   }
@@ -37,14 +40,22 @@ export class UserRepository extends BaseRepository<UserEntity> {
           'Error en el Registro',
         );
       }
+      const respCom = {
+        token: this.getJwtToken({ id: resp.id, email: resp.email }),
+      };
       return this.respuestaService.respuestaHttp(
         true,
-        resp,
+        respCom,
         ruta,
         'Registro Exitoso',
       );
     } catch (error) {
-      console.log(error);
+      return this.respuestaService.respuestaHttp(
+        false,
+        null,
+        ruta,
+        'Error en el Registro comuniquese con soporte',
+      );
     }
   }
 
@@ -72,13 +83,26 @@ export class UserRepository extends BaseRepository<UserEntity> {
           ruta,
           'Error en Credenciales',
         );
-      delete user.password;
+      const respCom = {
+        token: this.getJwtToken({ id: user.id, email: user.email }),
+      };
       return this.respuestaService.respuestaHttp(
         true,
-        user,
+        respCom,
         ruta,
         'Login Exitoso',
       );
-    } catch (error) {}
+    } catch (error) {
+      return this.respuestaService.respuestaHttp(
+        false,
+        null,
+        ruta,
+        'Error en el Registro comuniquese con soporte',
+      );
+    }
+  }
+
+  private getJwtToken(payload: JwtPayload) {
+    return this.jwtService.sign(payload);
   }
 }

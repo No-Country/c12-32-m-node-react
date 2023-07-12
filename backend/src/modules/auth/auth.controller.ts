@@ -22,7 +22,7 @@ export class AuthController {
   /*@Post()
   create(@Body() createAuthDto: CreateUserDto) {
     return this.authService.create(createAuthDto);
-  }*/
+  }
 
   @Get()
   findAll() {
@@ -42,7 +42,7 @@ export class AuthController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.authService.delete({ id });
-  }
+  }*/
 
   @Post('create')
   @ApiProperty({
