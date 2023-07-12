@@ -1,4 +1,3 @@
-import React from "react";
 import userImg from "../assets/userImg.png";
 
 const Profile = () => {

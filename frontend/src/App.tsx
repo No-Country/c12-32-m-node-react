@@ -7,6 +7,7 @@ import FormUser from "./components/FormUser";
 import Adoption from "./components/Adoption";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
+import AdoptionList from "./components/MissingCard";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/form" element={<FormUser />} />
         <Route path="/adoption" element={<Adoption />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/missing-list" element={<AdoptionList />} />
       </Routes>
       <Footer />
     </HashRouter>
