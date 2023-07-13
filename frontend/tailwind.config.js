@@ -3,14 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      screens: {
-        mobile: { max: "639px" },
-      },
       spacing: {
-        '356': '68rem',
-        'height-Login': '30rem',
-        'widthFormRegister': '42rem',
-        'heightFormRegister': '40.7rem'
+        356: "68rem",
+        "height-Login": "30rem",
+        widthFormRegister: "42rem",
       },
       colors: {
         customBlue: "#84a7ae",
@@ -19,6 +15,8 @@ module.exports = {
         customBgRegister: "#e0e0e0",
         customBgNavBar: "#78bcd7",
         customBtnNavBar: "#b2d7c3",
+        customBtnNavBar1: "#bbdcca",
+        custombtnNavBarName: "#896fb3",
       },
     },
   },

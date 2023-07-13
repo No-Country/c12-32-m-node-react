@@ -1,6 +1,6 @@
-import perroDuenio from "../../src/assets/perroDuenio.webp"
-import lostDog from "../../src/assets/lostDog.jpg"
-import { NavLink, Link } from "react-router-dom";
+import perroDuenio from "../../src/assets/perroDuenio.jpg"
+import lostDog from "../../src/assets/lostDog1.jpg"
+import { NavLink } from "react-router-dom";
 
 const Adoption = () => {
   return (
@@ -9,7 +9,7 @@ const Adoption = () => {
         <img
           src={perroDuenio}
           alt="Foto Izquierda"
-          className="w-full lg:h-[90vh] h-[80vh] mobile:object-contain mobile:h-full"
+          className="w-full object-cover lg:h-[90vh] h-[80vh] mobile:object-contain mobile:h-full"
         />
 
         <button className="lg:bg-black bg-navBarColor text-white font-semibold lg:px-4 lg:py-5 py-3 mt-0 lg:w-70 w-[10rem] md:w-96 rounded-full absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 lg:hover:text-black lg:hover:bg-gray-200 lg:hover:opacity-70 transition duration-300">
@@ -20,7 +20,7 @@ const Adoption = () => {
         <img
           src={lostDog}
           alt="Foto Derecha"
-          className="w-full lg:h-[90vh] h-[80vh] mobile:object-contain"
+          className="w-full object-cover  lg:h-[90vh] h-[80vh] mobile:object-contain"
         />
         <NavLink to="/missing-list">
           <button className="lg:bg-black bg-navBarColor rounded-full text-white font-semibold lg:px-4 lg:py-4 py-3 mt-0 lg:w-70 md:w-96 w-[10rem] absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2  lg:hover:text-black lg:hover:bg-gray-200 lg:hover:opacity-70 transition duration-300">
