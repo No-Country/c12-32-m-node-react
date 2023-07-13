@@ -69,7 +69,7 @@ const AdoptionList = () => {
             <div className="w-11/12 h-32 flex flex-col justify-between">
               <div className="w-12/12 flex items-center justify-between">
                 <div className="flex items-center">
-                  <h3 className="my-2 font-bold text-lg">TOBY</h3>
+                  <h3 className="my-2 font-bold text-lg">TADEO</h3>
                   <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
                 </div>
                 <Link
@@ -105,7 +105,7 @@ const AdoptionList = () => {
             <div className="w-11/12 h-32  flex flex-col justify-between">
               <div className="w-12/12 flex items-center justify-between">
                 <div className="flex items-center">
-                  <h3 className="my-2 font-bold text-lg">TOBY</h3>
+                  <h3 className="my-2 font-bold text-lg">REX</h3>
                   <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
                 </div>
                 <Link
@@ -141,7 +141,7 @@ const AdoptionList = () => {
             <div className="w-11/12 h-32  flex flex-col justify-between">
               <div className="w-12/12 flex items-center justify-between">
                 <div className="flex items-center">
-                  <h3 className="my-2 font-bold text-lg">TOBY</h3>
+                  <h3 className="my-2 font-bold text-lg">CARLOS</h3>
                   <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
                 </div>
                 <Link
