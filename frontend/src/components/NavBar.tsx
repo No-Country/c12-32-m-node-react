@@ -7,15 +7,15 @@ import userRegister from "../assets/userRegister.png";
 import SectionHomeFour from "./SectionHomeFour";
 
 const NavBar = () => {
-     const [shouldShowSections, setShouldShowSections] = useState(false);
+  const [shouldShowSections, setShouldShowSections] = useState(false);
 
-     const handleMenuClick = () => {
-       setShouldShowSections(true);
-     };
+  const handleMenuClick = () => {
+    setShouldShowSections(true);
+  };
 
-     const handleCreateAdClick = () => {
-       setShouldShowSections(false);
-     };
+  const handleCreateAdClick = () => {
+    setShouldShowSections(false);
+  };
   return (
     <header>
       <nav className="flex items-center  justify-between px-10 bg-customBgNavBar h-20  ">

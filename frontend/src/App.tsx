@@ -8,6 +8,7 @@ import Adoption from "./components/Adoption";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import AdoptionList from "./components/MissingCard";
+import AdoptionCards from "./components/AdoptionCards";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/form" element={<FormUser />} />
         <Route path="/adoption" element={<Adoption />} />
+        <Route path="/adoption/cards" element={<AdoptionCards />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/missing-list" element={<AdoptionList />} />
       </Routes>
