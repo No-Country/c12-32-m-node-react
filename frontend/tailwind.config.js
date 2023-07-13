@@ -3,10 +3,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        mobile: { max: "639px" },
+      },
       spacing: {
         '356': '68rem',
         'height-Login': '30rem',
-        'widthFormRegister': '42rem'
+        'widthFormRegister': '42rem',
+        'heightFormRegister': '40.7rem'
       },
       colors: {
         customBlue: "#84a7ae",

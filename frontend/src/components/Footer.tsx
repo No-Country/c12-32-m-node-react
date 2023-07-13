@@ -13,7 +13,7 @@ function Footer() {
         <a href="https://www.instagram.com" className="mr-4 hover:text-white transition-all durartion-300">
           <FaInstagram size={24} />
         </a>
-        <a href="mailto:example@example.com" className= "hover:text-white transition-all duration-300">
+        <a href="mailto:example@example.com" className="hover:text-white transition-all duration-300">
           <HiOutlineMail size={24} />
         </a>
       </div>
