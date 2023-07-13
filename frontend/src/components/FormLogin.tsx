@@ -10,6 +10,8 @@ import {
     signInWithPopup,
 } from "firebase/auth";
 import { auth } from "./firebase/config";
+import "sweetalert2/dist/sweetalert2.min.css";
+import swal from "sweetalert";
 
 
 interface LoginProps {
@@ -37,12 +39,11 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 const user = result.user;
-                console.log(user.displayName);
-                window.alert("Login Successfully");
-                navigate("/form")
+                swal("Excelente", "Inicio de sesión exitoso!", "success");
+                navigate("/form");
             })
             .catch((error) => {
-                window.alert(error.message);
+               swal("Error", error.message, "error");
             });
     }
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import chicaperro from "../assets/chicaperro.jpg";
+import chicaPerro1 from "../assets/chicaPerro1.jpg";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { MdArrowUpward } from "react-icons/md";
@@ -57,7 +57,7 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
           <div
             className="rounded-tl-full rounded-bl-full overflow-hidden w-full md:w-1/2 h-screen bg-cover bg-center"
             style={{
-              backgroundImage: `url(${chicaperro})`,
+              backgroundImage: `url(${chicaPerro1})`,
               borderRadius: "0 50% 50% 0",
               minHeight: "100vh",
               backgroundSize: "cover",
