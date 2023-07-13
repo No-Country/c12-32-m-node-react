@@ -1,3 +1,9 @@
+import { AiOutlineClockCircle } from "react-icons/ai";
+import { IoLocationSharp, IoMaleOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
+import animalCard from "../../src/assets/img-card.jpg";
+import gatito from "../assets/gatito.jpg";
+import perro from "../assets/perro.jpg";
 import userImg from "../assets/userImg.png";
 
 const Profile = () => {
@@ -5,31 +11,149 @@ const Profile = () => {
     <div className="flex justify-center items-center h-screen">
       <div className="w-5/6">
         <div className="text-center mb-8">
-          <h1 className="text-2xl mt-[-1rem] ">Hola Paula!</h1>
+          <h1 className="text-4xl mt-[6rem] text-center">Hola Paula!</h1>
         </div>
-        <div className="flex">
+        <div className="flex mr-10">
           <div className="w-2/3 pr-4">
-            <h2 className="text-lg font-semibold mb-4 mt-5">
-              Mis publicaciones
-            </h2>
-            <div className="p-4 bg-white">
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold">
-                  Título de la publicación 1
-                </h3>
-                <p>Contenido de la publicación 1</p>
-              </div>
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold">
-                  Título de la publicación 2
-                </h3>
-                <p>Contenido de la publicación 2</p>
-              </div>
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold">
-                  Título de la publicación 3
-                </h3>
-                <p>Contenido de la publicación 3</p>
+            <div className="h-auto">
+              <div>
+                <h2 className="text-xl font-semibold mb-[-1rem] mt-[-1rem] text-center">
+                  Mis publicaciones
+                </h2>
+                <section className="my-10 m-auto grid grid-cols-3 w-9/12 gap-8 bg-red justify-center">
+                  <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+                    <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
+                      <img
+                        src={animalCard}
+                        alt=""
+                        className="rounded-md h-full"
+                      />
+                    </div>
+                    <div className="w-11/12 h-32 flex flex-col justify-between">
+                      <div className="w-12/12 flex items-center justify-between">
+                        <div className="flex items-center">
+                          <h3 className="my-2 font-bold text-lg">TOBY</h3>
+                          <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
+                        </div>
+                        <NavLink
+                          to={"/animalInfo"}
+                          className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                        >
+                          Info +
+                        </NavLink>
+                      </div>
+                      <div className="flex">
+                        <IoLocationSharp className="text-red-600" />
+                        <p className="text-xs font-semibold mx-1">
+                          Recoleta, Provincia de Buenos Aires, ARG
+                        </p>
+                      </div>
+                      <div className="flex items-center">
+                        <AiOutlineClockCircle />
+                        <span className="text-xs my-3 text-slate-500 mx-1">
+                          Publicado hace 2 semanas
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+                    <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
+                      <img src={gatito} alt="" className="rounded-lg h-full" />
+                    </div>
+                    <div className="w-11/12 h-32 flex flex-col justify-between">
+                      <div className="w-12/12 flex items-center justify-between">
+                        <div className="flex items-center">
+                          <h3 className="my-2 font-bold text-lg">TADEO</h3>
+                          <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
+                        </div>
+                        <NavLink
+                          to={"/animalInfo"}
+                          className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                        >
+                          Info +
+                        </NavLink>
+                      </div>
+                      <div className="flex">
+                        <IoLocationSharp className="text-red-600" />
+                        <p className="text-xs font-semibold mx-1">
+                          Recoleta, Provincia de Buenos Aires, ARG
+                        </p>
+                      </div>
+                      <div className="flex items-center">
+                        <AiOutlineClockCircle />
+                        <span className="text-xs my-3 text-slate-500 mx-1">
+                          Publicado hace 2 semanas
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+                    <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
+                      <img src={perro} alt="" className="rounded-md h-full" />
+                    </div>
+                    <div className="w-11/12 h-32 flex flex-col justify-between">
+                      <div className="w-12/12 flex items-center justify-between">
+                        <div className="flex items-center">
+                          <h3 className="my-2 font-bold text-lg">REX</h3>
+                          <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
+                        </div>
+                        <NavLink
+                          to={"/animalInfo"}
+                          className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                        >
+                          Info +
+                        </NavLink>
+                      </div>
+                      <div className="flex">
+                        <IoLocationSharp className="text-red-600" />
+                        <p className="text-xs font-semibold mx-1">
+                          Recoleta, Provincia de Buenos Aires, ARG
+                        </p>
+                      </div>
+                      <div className="flex items-center">
+                        <AiOutlineClockCircle />
+                        <span className="text-xs my-3 text-slate-500 mx-1">
+                          Publicado hace 2 semanas
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+                    <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
+                      <img
+                        src={animalCard}
+                        alt=""
+                        className="rounded-md h-full"
+                      />
+                    </div>
+                    <div className="w-11/12 h-32 flex flex-col justify-between">
+                      <div className="w-12/12 flex items-center justify-between">
+                        <div className="flex items-center">
+                          <h3 className="my-2 font-bold text-lg">CARLOS</h3>
+                          <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
+                        </div>
+                        <NavLink
+                          to={"/animalInfo"}
+                          className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                        >
+                          Info +
+                        </NavLink>
+                      </div>
+                      <div className="flex">
+                        <IoLocationSharp className="text-red-600" />
+                        <p className="text-xs font-semibold mx-1">
+                          Recoleta, Provincia de Buenos Aires, ARG
+                        </p>
+                      </div>
+                      <div className="flex items-center">
+                        <AiOutlineClockCircle />
+                        <span className="text-xs my-3 text-slate-500 mx-1">
+                          Publicado hace 2 semanas
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </div>
             </div>
           </div>
@@ -120,7 +244,7 @@ const Profile = () => {
               </div>
             </div>
             <div className="flex justify-center">
-              <button className="bg-navBarColor rounded-full text-black font-semibold px-10 py-2 mt-0">
+              <button className="bg-customBgNavBar rounded-full text-black font-semibold px-10 py-2 mt-0">
                 Editar
               </button>
             </div>

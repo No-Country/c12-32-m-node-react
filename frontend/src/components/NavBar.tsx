@@ -154,14 +154,16 @@ const NavBar = () => {
             Crear Anuncio
           </button>
           <ShowOnLogin>
-            <button>
-              <p className="font-semibold">
-                Hola!{" "}
-                <a className="text-custombtnNavBarName ml-1 hover:text-white transition-all duration-300">
-                  {displayName}
-                </a>
-              </p>
-            </button>
+            <NavLink to="/profile">
+              <button>
+                <p className="font-semibold mt-2">
+                  Hola!{" "}
+                  <a className="text-custombtnNavBarName ml-1 hover:text-white transition-all duration-300">
+                    {displayName}
+                  </a>
+                </p>
+              </button>
+            </NavLink>
           </ShowOnLogin>
           <ShowOnLogout>
             <div
