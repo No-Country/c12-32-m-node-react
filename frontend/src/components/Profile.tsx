@@ -8,7 +8,7 @@ import userImg from "../assets/userImg.png";
 
 const Profile = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen ">
       <div className="w-5/6">
         <div className="text-center mb-8">
           <h1 className="text-4xl mt-[6rem] text-center">Hola Paula!</h1>
@@ -17,7 +17,7 @@ const Profile = () => {
           <div className="w-2/3 pr-4">
             <div className="h-auto">
               <div>
-                <h2 className="text-xl font-semibold mb-[-1rem] mt-[-1rem] text-center">
+                <h2 className="text-xl font-semibold mb-[-1rem] mt-[-1rem] text-centerfirst-line:">
                   Mis publicaciones
                 </h2>
                 <section className="my-10 m-auto grid grid-cols-3 w-9/12 gap-8 bg-red justify-center">
