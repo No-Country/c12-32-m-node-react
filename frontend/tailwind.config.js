@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        mobile: { max: "639px" },
+      },
       spacing: {
         356: "68rem",
         "height-Login": "30rem",
@@ -17,6 +20,7 @@ module.exports = {
         customBtnNavBar: "#b2d7c3",
         customBtnNavBar1: "#bbdcca",
         custombtnNavBarName: "#896fb3",
+        customBgSectionTwo: "#b2d7c3",
       },
     },
   },
