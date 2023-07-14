@@ -53,7 +53,7 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
   return (
     <>
       <div>
-        <div className="flex">
+        <div className="lg:flex">
           <div
             className="rounded-tl-full rounded-bl-full overflow-hidden w-full md:w-1/2 h-screen bg-cover bg-center"
             style={{
@@ -66,10 +66,10 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
           {/* Código del contenido 1 */}
           <div
             id="inicio"
-            className="flex flex-col justify-center items-center w-1/2 p-8 md:py-35"
+            className="lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-1/2 lg:p-8 md:py-35"
           >
             <h1
-              className="text-5xl font-semibold mb-4"
+              className="lg:text-5xl text-4xl mobile:text-center mobile:ml-[-5rem] text-gray-800 font-semibold lg:mb-4 mobile:absolute mobile:top-1/2 mobile:mt-[-20rem] transform -translate-y-1/2"
               data-aos="fade-down"
               data-aos-delay="500"
             >
@@ -85,7 +85,7 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
               <br />
               <NavLink to="/login">
                 <button
-                  className="py-2 px-10 rounded-full bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white mt-8"
+                  className="py-2 px-10 rounded-full bg-customBgNavBar hover:bg-gray-300 transition-all duration-300 text-white lg:mt-8 mt-[-100rem]"
                   style={{ letterSpacing: "0.1em" }}
                   onClick={handleCreateAdClick}
                 >
