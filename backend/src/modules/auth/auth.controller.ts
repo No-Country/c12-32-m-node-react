@@ -12,10 +12,12 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiProperty, ApiTags } from '@nestjs/swagger';
 import { LoginUserDto } from './dto/login-user.dto';
+import { Auth } from './decorators/auth.decorator';
+import { ValidRoles } from './strategies/roles';
 
 @ApiTags('Registro de Usuarios')
-@Controller('api/v1/user-register/')
-@Controller('auth')
+@Controller('user-register/')
+//@Controller('auth')
 export class AuthController {
   constructor(private readonly authService: UserService) {}
 
@@ -58,5 +60,15 @@ export class AuthController {
   })
   loginUser(@Body() loginDto: LoginUserDto) {
     return this.authService.loginUser(loginDto);
+  }
+
+  @Auth(ValidRoles.USER)
+  @Get('zzz')
+  @ApiProperty({
+    description: 'Login de usuario',
+  })
+  
+  llamado() {
+    return "bryanss"
   }
 }

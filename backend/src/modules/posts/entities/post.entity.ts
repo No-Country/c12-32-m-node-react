@@ -22,12 +22,22 @@ export class PostEntity extends BasedEntity {
   @Column({ type: 'int' })
   likes: number;
 
-  @ManyToOne(() => PetsEntity, (pet) => pet.posts)
+  @ManyToOne(() => PetsEntity, (pet) => pet.posts,{
+    eager:true
+  })
   pets: PetsEntity;
-  @OneToMany(() => PostImagesEntity, (image) => image.post)
+  @OneToMany(() => PostImagesEntity, (image) => image.post,{
+    eager:true
+  })
   images: PostImagesEntity[];
-  @ManyToOne(() => UserEntity, (users) => users.posts)
+
+  @ManyToOne(() => UserEntity, (users) => users.posts,{
+    eager:true
+  })
   user: UserEntity;
-  @OneToMany(() => PostCommentEntity, (comment) => comment.posts)
+
+  @OneToMany(() => PostCommentEntity, (comment) => comment.posts,{
+    eager:true
+  })
   comments: PostCommentEntity[];
 }

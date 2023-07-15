@@ -10,7 +10,7 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
   );
-
+  app.setGlobalPrefix("api/v1")
   const config = new DocumentBuilder()
     .setTitle('NO COUNTRY - C12-32-M-NODE-REACT')
     .setDescription(
