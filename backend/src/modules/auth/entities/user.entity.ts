@@ -1,3 +1,4 @@
+import { PetsEntity } from 'src/modules/pets/entities/pet.entity';
 import { PostEntity } from 'src/modules/posts/entities/post.entity';
 import { PostCommentEntity } from 'src/modules/posts/entities/post_comment.entity';
 import { BasedEntity } from 'src/modules/shared/entities/base.entity';
@@ -28,6 +29,9 @@ export class UserEntity extends BasedEntity {
 
   @Column({ type: 'text', array: true, default: ['user'] })
   role: string[];
+
+  @OneToMany(()=> PetsEntity,(pet)=>pet.user)
+  pets:PetsEntity[]
 
   @OneToMany(() => PostEntity, (post) => post.user)
   posts: PostEntity[];
