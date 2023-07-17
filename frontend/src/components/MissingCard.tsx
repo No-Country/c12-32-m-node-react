@@ -22,13 +22,9 @@ const AdoptionList = () => {
           <br />
         </p>
         <section className="my-10 m-auto grid grid-cols-3 w-9/12 gap-8 bg-red justify-center">
-          <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+          <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
             <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
-              <img
-                src={animalCard}
-                alt=""
-                className="rounded-md h-full"
-              />
+              <img src={animalCard} alt="" className="rounded-md h-full" />
             </div>
             <div className="w-11/12 h-32  flex flex-col justify-between">
               <div className="w-12/12 flex items-center justify-between">
@@ -38,7 +34,7 @@ const AdoptionList = () => {
                 </div>
                 <Link
                   to={"/animalInfo"}
-                  className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                  className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                 >
                   Info +
                 </Link>
@@ -58,13 +54,9 @@ const AdoptionList = () => {
               </div>
             </div>
           </div>
-          <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+          <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
             <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
-              <img
-                src={gatito}
-                alt=""
-                className="rounded-lg h-full"
-              />
+              <img src={gatito} alt="" className="rounded-lg h-full" />
             </div>
             <div className="w-11/12 h-32 flex flex-col justify-between">
               <div className="w-12/12 flex items-center justify-between">
@@ -74,7 +66,7 @@ const AdoptionList = () => {
                 </div>
                 <Link
                   to={"/animalInfo"}
-                  className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                  className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                 >
                   Info +
                 </Link>
@@ -94,13 +86,9 @@ const AdoptionList = () => {
               </div>
             </div>
           </div>
-          <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+          <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
             <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
-              <img
-                src={perro}
-                alt=""
-                className="rounded-md h-full"
-              />
+              <img src={perro} alt="" className="rounded-md h-full" />
             </div>
             <div className="w-11/12 h-32  flex flex-col justify-between">
               <div className="w-12/12 flex items-center justify-between">
@@ -110,7 +98,7 @@ const AdoptionList = () => {
                 </div>
                 <Link
                   to={"/animalInfo"}
-                  className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                  className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                 >
                   Info +
                 </Link>
@@ -130,13 +118,9 @@ const AdoptionList = () => {
               </div>
             </div>
           </div>
-          <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+          <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
             <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
-              <img
-                src={animalCard}
-                alt=""
-                className="rounded-md h-full"
-              />
+              <img src={animalCard} alt="" className="rounded-md h-full" />
             </div>
             <div className="w-11/12 h-32  flex flex-col justify-between">
               <div className="w-12/12 flex items-center justify-between">
@@ -146,7 +130,7 @@ const AdoptionList = () => {
                 </div>
                 <Link
                   to={"/animalInfo"}
-                  className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                  className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                 >
                   Info +
                 </Link>

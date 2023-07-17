@@ -129,6 +129,15 @@ const NavBar = () => {
           </li>
           <li>
             <a
+              href="#quienesSomos"
+              className="hover:text-white transition-all duration-300"
+              onClick={handleMenuClick}
+            >
+              Nosotros
+            </a>
+          </li>
+          <li>
+            <a
               href="#comoFunciona"
               className="hover:text-white transition-all duration-300"
               onClick={handleMenuClick}
@@ -137,9 +146,13 @@ const NavBar = () => {
             </a>
           </li>
           <li>
-            <a href="" className="hover:text-white transition-all duration-300">
+            <NavLink
+              to="/adoption"
+              className="hover:text-white transition-all duration-300"
+              onClick={handleCreateAdClick}
+            >
               Anuncios
-            </a>
+            </NavLink>
           </li>
           <li>
             <NavLink
@@ -153,7 +166,7 @@ const NavBar = () => {
         </ul>
         <section className="flex gap-10">
           <button
-            className="border-3 rounded-full h-[45px] w-48 bg-customBtnNavBar1 transition-all duration-300 text-black hover:text-white font-semibold text-lg"
+            className="border-3 rounded-full h-[40px] w-40 bg-customBtnNavBar1 transition-all duration-300 text-white hover:text-gray-700 font-semibold text-lg"
             onClick={handleCreateAdClickCrearAnuncio}
           >
             Crear Anuncio
@@ -190,7 +203,7 @@ const NavBar = () => {
           </ShowOnLogout>
           <ShowOnLogin>
             <button
-              className="transition-all duration-300 text-black hover:text-white font-semibold text-lg "
+              className="transition-all duration-300 text-black hover:text-white font-semibold text-lg pt-2"
               onClick={logoutUser}
             >
               <LuLogOut size={20} />
