@@ -1,0 +1,6 @@
+npm i @nestjs/swagger
+npm i bcrypt
+npm install --save @nestjs/passport passport
+npm install --save-dev @types/passport
+npm i @nestjs/jwt
+
