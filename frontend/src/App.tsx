@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import AdoptionList from "./components/MissingCard";
 import AdoptionCards from "./components/AdoptionCards";
+import Publication from "./components/Publication";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/adoption/cards" element={<AdoptionCards />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/missing-list" element={<AdoptionList />} />
+        <Route path="/publication" element={<Publication />} />
       </Routes>
       <Footer />
     </HashRouter>

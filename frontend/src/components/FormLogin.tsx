@@ -43,11 +43,9 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
                 navigate("/form");
             })
             .catch((error) => {
-               swal("Error", error.message, "error");
+                swal("Error", error.message, "error");
             });
     }
-
-
 
 
     return (

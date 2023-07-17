@@ -6,7 +6,9 @@ module.exports = {
       spacing: {
         356: "68rem",
         "height-Login": "30rem",
-        widthFormRegister: "42rem",
+        "widthFormRegister": "42rem",
+        "heightPublicationVh": "89vh",
+
       },
       colors: {
         customBlue: "#84a7ae",
@@ -17,7 +19,11 @@ module.exports = {
         customBtnNavBar: "#b2d7c3",
         customBtnNavBar1: "#bbdcca",
         custombtnNavBarName: "#896fb3",
+        customBgComment: "#B2D7C3"
       },
+      fontSize: {
+        FsTextPublicationTime: "10px"
+      }
     },
   },
   variants: {
