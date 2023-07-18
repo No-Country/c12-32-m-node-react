@@ -12,6 +12,7 @@ const AdoptionCards = () => {
           offset: 100,
         });
       }, []);
+  
   return (
     <div>
       <div className="text-center my-8">

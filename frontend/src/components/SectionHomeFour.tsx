@@ -125,7 +125,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <AiOutlineClockCircle />
+                  <AiOutlineClockCircle  />
                   <span className="text-xs my-3 text-slate-500 mx-1">
                     Publicado hace 2 semanas
                   </span>
