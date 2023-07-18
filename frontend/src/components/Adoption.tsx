@@ -11,10 +11,11 @@ const Adoption = () => {
           alt="Foto Izquierda"
           className="w-full object-cover lg:h-[90vh] h-[80vh] mobile:object-contain mobile:h-full"
         />
-
-        <button className="lg:bg-black bg-navBarColor text-white font-semibold lg:px-4 lg:py-5 py-3 mt-0 lg:w-70 w-[10rem] md:w-96 rounded-full absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 lg:hover:text-black lg:hover:bg-gray-200 lg:hover:opacity-70 transition duration-300">
-          ADOPTAR
-        </button>
+        <NavLink to='/adoption/cards'>
+          <button className="lg:bg-black bg-navBarColor text-white font-semibold lg:px-4 lg:py-5 py-3 mt-0 lg:w-70 w-[10rem] md:w-96 rounded-full absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 lg:hover:text-black lg:hover:bg-gray-200 lg:hover:opacity-70 transition duration-300">
+            ADOPTAR
+          </button>
+        </NavLink>
       </div>
       <div className="bg-gray-200 relative   min-h-full mobile:h-76">
         <img

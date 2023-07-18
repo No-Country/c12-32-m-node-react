@@ -172,6 +172,7 @@ const NavBar = () => {
             Crear Anuncio
           </button>
           <ShowOnLogin>
+
             <button>
               <p className="font-semibold mt-2 ">
                 Hola!{" "}
@@ -183,6 +184,7 @@ const NavBar = () => {
                 </a>
               </p>
             </button>
+
           </ShowOnLogin>
           <ShowOnLogout>
             <div
@@ -222,4 +224,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
