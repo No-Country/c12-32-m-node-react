@@ -1,16 +1,28 @@
-
+import { useEffect } from "react";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { IoLocationSharp, IoMaleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import animalCard from "../../src/assets/img-card.jpg";
 import gatito from "../assets/gatito.jpg"
 import perro from "../assets/perro.jpg"
+import Aos from "aos";
 
 const AdoptionList = () => {
+    useEffect(() => {
+      Aos.init({
+        duration: 1800,
+        offset: 100,
+      });
+    }, []);
+  
   return (
     <div className="h-auto">
       <div>
-        <h2 className="text-center py-12 text-4xl pb-4">
+        <h2
+          className="text-center py-12 text-4xl pb-4"
+          data-aos="fade-down"
+          data-aos-delay="500"
+        >
           {" "}
           ¡AYUDANOS A ENCONTRAR LAS MASCOTAS!
         </h2>

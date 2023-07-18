@@ -7,8 +7,11 @@ import perro from "../assets/perro.jpg";
 import userImg from "../assets/userImg.png";
 import { useEffect } from "react";
 import Aos from "aos";
+import { useSelector } from "react-redux";
+import { selectEmail } from "./redux/slice/authSlice";
 
 const Profile = () => {
+  const userEmail = useSelector(selectEmail);
 
   useEffect(() => {
     Aos.init({
@@ -16,7 +19,6 @@ const Profile = () => {
       offset: 100,
     });
   }, []);
-
 
   return (
     <div className="flex justify-center items-center h-screen ">
@@ -27,7 +29,7 @@ const Profile = () => {
             data-aos="fade-down"
             data-aos-delay="500"
           >
-            ¡Hola Paula!
+            ¡Hola {userEmail}!
           </h1>
         </div>
         <div className="flex mr-10">

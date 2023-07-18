@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import huellas from "../assets/huellas.png"
+import huellas from "../assets/huellas.png";
 
 const SectionHomeThree = () => {
   useEffect(() => {

@@ -24,7 +24,7 @@ function App() {
         <Route path="/adoption/cards" element={<AdoptionCards />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/missing-list" element={<AdoptionList />} />
-        <Route path="/publication" element={<Publication />} />
+        <Route path="/animalInfo" element={<Publication />} />
       </Routes>
       <Footer />
     </HashRouter>

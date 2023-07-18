@@ -14,7 +14,7 @@ const Login = () => {
 
   return (
     <div className="Login h-full bg-customBgLogin">
-      <img src={bgMainLogin} alt="" className="h-full" />
+      <img src={bgMainLogin} alt="" className="h-full md:h-[80vh]" />
       <div>
         {isLogin ? (
           <FormLogin verifyAccess={verifyAccess} />
