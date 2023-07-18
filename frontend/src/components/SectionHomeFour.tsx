@@ -78,7 +78,7 @@ const SectionHomeFour = () => {
                     <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
                   </div>
                   <Link
-                    to={"/animalInfo"}
+                    to={"/publication"}
                     className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                   >
                     Info +
@@ -114,7 +114,7 @@ const SectionHomeFour = () => {
                     <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
                   </div>
                   <Link
-                    to={"/animalInfo"}
+                    to={"/publication"}
                     className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                   >
                     Info +
