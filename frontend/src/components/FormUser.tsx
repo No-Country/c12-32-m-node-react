@@ -1,11 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import {
+  REMOVE_ACTIVE_USER,
+  SET_ACTIVE_USER,
+  selectEmail,
+} from "./redux/slice/authSlice";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/config";
 
 const FormUser = () => {
   const { handleSubmit, register } = useForm();
+  const dispatch = useDispatch();
+  const userEmail = useSelector(selectEmail);
+  const userEmailSlice = userEmail?.split("@")[0];
+  const [displayName, setDisplayName] = useState("");
 
   const [imagenes, setImagenes] = useState<string[]>([]);
+
+  useEffect(() => {
+    dispatch(
+      SET_ACTIVE_USER({
+        email: userEmail,
+        name: "",
+        userID: "",
+      })
+    );
+  }, [dispatch]);
 
   const handleAgregarImagen = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
@@ -24,11 +46,10 @@ const FormUser = () => {
     }
   };
 
-   const submit = (data:any) => {
-     console.log("Datos enviados:" , data)
-   };
+  const submit = (data: any) => {
+    console.log("Datos enviados:", data);
+  };
 
-  
   return (
     <div className="lg:flex flex-initial">
       <div className="container mx-auto px-4 bg-gray-200 lg:w-1/2">
@@ -85,7 +106,7 @@ const FormUser = () => {
             <label htmlFor="input-foto" className="mr-2 lg:pl-10"></label>
             <div className="w-12 h-12 sm:w-24 sm:h-24 bg-gray-300 transition duration-300 hover:bg-gray-600 rounded-full"></div>
             <p className="lg:pl-5 pl-4 text-lg font-semibold tracking-widest">
-              Paula Castro
+              {displayName ? <>{displayName}</> : <>{userEmailSlice}</>}
             </p>
             <div className="ml-4 lg:ml-60 mb-4">
               <label htmlFor="category" className="block mb-2 font-semibold">
@@ -265,6 +286,6 @@ const FormUser = () => {
       </div>
     </div>
   );
-}
+};
 
 export default FormUser;

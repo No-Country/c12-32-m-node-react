@@ -28,7 +28,7 @@ const SectionHomeTwo = () => {
       {/* Código del contenido 2 */}
       <div
         id="quienesSomos"
-        className="flex justify-center items-center h-screen bg-customBgSectionTwo"
+        className="flex justify-center items-center h-screen bg-custombgSectionTwo"
       >
         <div className="text-left">
           <h1
