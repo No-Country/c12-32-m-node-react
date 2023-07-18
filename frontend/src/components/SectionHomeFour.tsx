@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import animalCard from "../assets/img-card.jpg"
 import { useEffect } from "react";
 import Aos from "aos";
@@ -41,12 +41,12 @@ const SectionHomeFour = () => {
                     <h3 className="my-2 font-bold text-lg">TOBY</h3>
                     <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
                   </div>
-                  <Link
-                    to={"/animalInfo"}
+                  <NavLink
+                    to={"/publication"}
                     className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                   >
                     Info +
-                  </Link>
+                  </NavLink>
                 </div>
                 <div className="flex">
                   <IoLocationSharp className="text-red-600" />
