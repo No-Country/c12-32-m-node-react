@@ -46,7 +46,7 @@ const Publication = () => {
                         Todos estamos preocupados! la ultima vez que lo vimos fue en la plaza Francia, Recoleta. Si lo viste o sabes algo, déjalo en los comentarios.
                     </p>
                     <p className='my-4 text-FsTextPublicationTime text-slate-500'>
-                        publicado hace 2 semanas
+                        - Publicado hace 2 semanas
                     </p>
                 </div>
                 <div className='w-full h-auto bg-customBgNavBar absolute bottom-0 left-0'>
