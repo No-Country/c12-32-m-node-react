@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AuthState {
   isLoggedIn: boolean;
-  email: string | null;
+  email: any | null;
   name: string | null;
   userID: string | null;
 }
@@ -32,6 +32,7 @@ const authSlice = createSlice({
         (state.email = email),
         (state.name = name),
         (state.userID = userID);
+      
     },
       REMOVE_ACTIVE_USER: (state, action: PayloadAction<ActiveUser>) => {   
       //Esta accion actualiza el estado de la aplicación con los datos de un usuario activo.

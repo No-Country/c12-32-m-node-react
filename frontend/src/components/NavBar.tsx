@@ -9,11 +9,17 @@ import "sweetalert2/dist/sweetalert2.min.css";
 import swal from "sweetalert";
 import "./SweetAlert.css";
 import { useDispatch, useSelector } from "react-redux";
-import { REMOVE_ACTIVE_USER, SET_ACTIVE_USER, selectIsLoggedIn } from "./redux/slice/authSlice";
+import {
+  REMOVE_ACTIVE_USER,
+  SET_ACTIVE_USER,
+  selectEmail,
+  selectIsLoggedIn,
+} from "./redux/slice/authSlice";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase/config";
 import ShowOnLogin, { ShowOnLogout } from "./ShowOnLogin";
 import { LuLogOut } from "react-icons/lu";
+import LOGO from "../assets/LOGO.png";
 
 const NavBar = () => {
   const [shouldShowSections, setShouldShowSections] = useState(false);
@@ -21,6 +27,7 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoggedIn1 = useSelector(selectIsLoggedIn);
+  const userEmail = useSelector(selectEmail);
 
   const handleMenuClick = () => {
     setShouldShowSections(true);
@@ -28,7 +35,7 @@ const NavBar = () => {
 
   const handleCreateAdClickCrearAnuncio = () => {
     if (!isLoggedIn1) {
-      setShouldShowSections(false);
+      setShouldShowSections(true);
       swal({
         title: "Atención",
         text: "Para poder publicar un anuncio debes crearte una cuenta!",
@@ -47,12 +54,14 @@ const NavBar = () => {
           swal("Creemos tu cuenta!", {
             icon: "success",
           }).then(() => {
+            setShouldShowSections(false);
             navigate("/login");
           });
         } else {
           swal("Hasta luego", {
             icon: "success",
           }).then(() => {
+            setShouldShowSections(false);
             navigate("/");
           });
         }
@@ -69,8 +78,8 @@ const NavBar = () => {
 
   const handleCreateAdClickProfile = () => {
     setShouldShowSections(false);
-    navigate("/profile")
-  }
+    navigate("/profile");
+  };
 
   //Monitoreando usuario logueado
   useEffect(() => {
@@ -101,21 +110,33 @@ const NavBar = () => {
   }, [dispatch, displayName]);
 
   const logoutUser = () => {
-    signOut(auth)
-      .then(() => {
-        swal("Excelente", "Cierre de sesión exitoso", "success");
-        navigate("/");
-      })
-      .catch((error) => {
-        swal("Error", error.message, "error");
-      });
+    if (displayName) {
+      signOut(auth)
+        .then(() => {
+          swal("Excelente", "Cierre de sesión exitoso", "success");
+          navigate("/");
+        })
+        .catch((error) => {
+          swal("Error", error.message, "error");
+        });
+    } else {
+      dispatch(
+        REMOVE_ACTIVE_USER({
+          email: null || "",
+          name: null || "",
+          userID: "",
+        })
+      );
+      swal("Excelente", "Cierre de sesión exitoso normal", "success");
+      navigate("/");
+    }
   };
 
   return (
     <header>
       <nav className="flex items-center  justify-between px-10 bg-customBgNavBar h-20  ">
-        <div className="Logo bg-black h-16 w-16 flex items-center justify-center text-white">
-          <span>LOGO</span>
+        <div className="Logo w-[6rem] flex items-center justify-center text-white">
+          <img src={LOGO} alt="logo" className="mr-10 " />
         </div>
         <ul className="flex  space-x-10 text-lg">
           <li>
@@ -172,7 +193,6 @@ const NavBar = () => {
             Crear Anuncio
           </button>
           <ShowOnLogin>
-
             <button>
               <p className="font-semibold mt-2 ">
                 Hola!{" "}
@@ -180,11 +200,10 @@ const NavBar = () => {
                   className="text-custombtnNavBarName ml-1 hover:text-white transition-all duration-300"
                   onClick={handleCreateAdClickProfile}
                 >
-                  {displayName}
+                  {displayName || userEmail}
                 </a>
               </p>
             </button>
-
           </ShowOnLogin>
           <ShowOnLogout>
             <div
@@ -216,7 +235,7 @@ const NavBar = () => {
           <SectionHomeOne handleCreateAdClick={handleCreateAdClick} />
           <SectionHomeTwo />
           <SectionHomeThree />
-          <SectionHomeFour />
+          <SectionHomeFour handleCreateAdClick={handleCreateAdClick} />
         </>
       )}
     </header>
