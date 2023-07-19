@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param } from '@nestjs/common';
 import { BaseService } from 'src/modules/shared/services';
 import { PetsEntity } from '../entities/pet.entity';
 import { PetsRepository } from '../repositories/pets.repositories';
@@ -15,5 +15,9 @@ export class PetsService extends BaseService<PetsEntity> {
   }
   async getPetsByUser(user_id: string) {
     return await this.petsRepository.getAllpetsByuser(user_id);
+  }
+
+  async findPets(id: string) {
+    return await this.petsRepository.findPets(id);
   }
 }
