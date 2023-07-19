@@ -11,6 +11,8 @@ import { CloudinaryService } from './services/cloudinary.service';
 import { PetsImagesRepository } from './repositories/pets-images.repositories';
 import { PetsImagesService } from './services/pets-images.service';
 import { PetsImagesController } from './controllers/pets-images.controller';
+import { RespuestaService } from '../shared/services';
+import { JwtUtil } from '../shared/services/jwt.util';
 
 @Module({
   imports: [
@@ -27,6 +29,8 @@ import { PetsImagesController } from './controllers/pets-images.controller';
     CloudinaryService,
     PetsImagesRepository,
     PetsImagesService,
+    RespuestaService,
+    JwtUtil,
   ],
 })
 export class PetsModule {}

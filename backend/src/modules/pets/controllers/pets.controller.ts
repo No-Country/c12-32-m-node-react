@@ -10,7 +10,7 @@ import {
 import { PetsService } from '../services/pets.service';
 import { CreatePetsDto } from '../dto/create-pets.dto';
 import { UpdatePetsDto } from '../dto/update-pets.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiProperty, ApiTags } from '@nestjs/swagger';
 import { Auth } from '../../auth/decorators/auth.decorator';
 import { ValidRoles } from '../../auth/strategies';
 
@@ -38,6 +38,14 @@ export class PetsController {
   @Get(':id')
   findOneBy(@Param('id') id: string) {
     return this.petsService.findOneBy({ id });
+  }
+
+  @Get('pet-images/:id')
+  @ApiProperty({
+    description: 'lista con sus imagenes',
+  })
+  findPets(@Param('id') id: string) {
+    return this.petsService.findPets(id);
   }
 
   @Patch(':id')

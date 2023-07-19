@@ -32,6 +32,6 @@ export class CreatePetsDto {
   race: string;
 
   @IsString()
-  @ApiProperty({ description: 'user_id' })
-  user_id: string;
+  @ApiProperty({ description: 'token' })
+  token: string;
 }
