@@ -37,6 +37,7 @@ const FormUser = () => {
     );
   }, [dispatch]);
 
+  // Codigo para la funcion de tomar una imagen de tu pc
 const handleAgregarImagen = (event: React.ChangeEvent<HTMLInputElement>) => {
   const files = event.target.files;
   if (files) {
@@ -70,7 +71,6 @@ const submit = async (data: any) => {
     // Si no envían ninguna imagen, no deja subir el formulario
     if (!imagenes || imagenes.length === 0) {
       swal("Warning", "Debes seleccionar por lo menos una imagen", "error");
-
     }
 
     // Obtener el token de autenticación desde el localStorage
@@ -89,7 +89,7 @@ const submit = async (data: any) => {
     };
       console.log("Encabezado de autorización:", config.headers.Authorization);
 
-    // Preparar el objeto de datos que se enviará al backend
+    // el objeto de datos que se enviará al backend 
     const formData = {
       name: data.name,
       description: data.description,
@@ -110,18 +110,18 @@ const submit = async (data: any) => {
       config
     );
 
-    // // Capturar el ID de la mascota creada
-    // const petId = response.data.data;
-    // console.log("ID de la mascota creada:", petId);
+    // Tomar el ID de la mascota creada
+    const petId = response.data.data;
+    console.log("ID de la mascota creada:", petId);
 
-    // // Subir las imágenes asociadas a la mascota
-    // const uploadImagesResponse = await axios.post(
-    //   `http://localhost:7500/api/v1/pets-images/${petId}/`,
-    //   formData,
-    //   config
-    // );
+    // Subir las imágenes asociadas a la mascota
+    const uploadImagesResponse = await axios.post(
+      `http://localhost:7500/api/v1/pets-images/${petId}/`,
+      formData,
+      config
+    );
 
-    // console.log("Respuesta de subida de imágenes:", uploadImagesResponse.data);
+    console.log("imágenes:", uploadImagesResponse.data);
 
     swal("Éxito", "Anuncio publicado correctamente", "success");
     navigate("/profile");
@@ -163,7 +163,7 @@ const submit = async (data: any) => {
                 <path d="M12 4v16m8-8H4"></path>
               </svg>
             </label>
-          </div>
+          </div> 
           <NavLink to={"/"}>
             <button className="absolute top-20 left-0 m-4 bg-customBgNavBar hover:bg-gray-500 text-white font-medium py-2 px-4 rounded-md">
               Volver
@@ -179,7 +179,7 @@ const submit = async (data: any) => {
               className="mb-4 w-full h-auto"
             />
           ))}
-        </div> 
+        </div>  
       </div>
       <div className="w-full md:w-1/2 p-4">
         <form onSubmit={handleSubmit(submit)}>
@@ -285,15 +285,15 @@ const submit = async (data: any) => {
               >
                 Tamaño:
               </label>
-              <input
+              {/* <input
                 type="number"
                 id="size"
                 {...register("size", {
                   required: "size es requerida",
                 })}
                 className="w-full p-2 lg:mt-0 border border-gray-800 rounded-md"
-              />
-              {/* <select
+              /> */}
+              <select
                 id="size"
                 {...register("size", {
                   required: "Seleccionar tamaño es obligatorio",
@@ -304,7 +304,7 @@ const submit = async (data: any) => {
                 <option value="pequeno">Pequeño</option>
                 <option value="mediano">Mediano</option>
                 <option value="grande">Grande</option>
-              </select> */}
+              </select> 
               {errors.size && typeof errors.size.message === "string" && (
                 <p className="text-red-500">{errors.size.message}</p>
               )}

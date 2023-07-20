@@ -61,7 +61,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
           })
         );
         swal("Excelente", "Inicio de sesión exitoso!", "success");
-        navigate("/form");
+        navigate("/profile");
       })
       .catch((error) => {
         console.error(error.message)
@@ -84,7 +84,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
     signInWithPopup(auth, provider)
       .then(() => {
         swal("Excelente", "Inicio de sesión exitoso!", "success");
-        navigate("/form");
+        navigate("/profile");
       })
       .catch((error) => {
         swal("Error", error.message, "error");
