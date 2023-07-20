@@ -22,9 +22,11 @@ module.exports = {
         customBtnNavBar1: "#bbdcca",
         custombtnNavBarName: "#896fb3",
         custombgSectionTwo: "#b2d7c3",
+        customBgComment: "#b2d7c3"
       },
       fontSize: {
         FsTextPublicationTime: "10px",
+        FsTextWarningPassword: "10px",
       },
     },
   },

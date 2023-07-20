@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
 import imgGoogle from '../assets/googleImg.png'
-import { useState } from "react";
+import { useState, SyntheticEvent } from "react";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFillEyeSlashFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import {
-    GoogleAuthProvider,
-    signInWithPopup,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "./firebase/config";
 import "sweetalert2/dist/sweetalert2.min.css";
@@ -33,6 +33,10 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
         },
       })
       .then((res) => {
+        console.log(res.data);
+        if (res.data.status === false) {
+          swal("Error", 'Contraseña Incorrecta', "error");
+        }
         const token = res.data.data.token;
         // Almacenar el token en las cookies
         document.cookie = `token=${token}; Secure; SameSite=Strict; path=/`;
@@ -58,7 +62,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
         navigate("/form");
       })
       .catch((error) => {
-        swal("Error", error.message, "error");
+        console.error(error.message)
       });
   };
 
@@ -66,9 +70,10 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
     return localStorage.getItem("token");
   };
 
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState<boolean>(true);
 
-  const showPassw = () => {
+  const showPassw = (e: SyntheticEvent) => {
+    e.preventDefault();
     setShowPassword(!showPassword);
   };
 
@@ -112,7 +117,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
                 className="w-11/12 rounded-l-lg bg-white"
               />
               <button
-                onClick={() => showPassw()}
+                onClick={(e) => showPassw(e)}
                 className="h-6 w-6 bg-white rounded-r-lg"
               >
                 {showPassword ? <IoEyeSharp /> : <BsFillEyeSlashFill />}

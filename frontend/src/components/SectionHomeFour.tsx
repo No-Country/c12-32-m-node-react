@@ -12,7 +12,7 @@ interface SectionHomeFourProps {
 const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
   handleCreateAdClick,
 }) => {
-  
+
   useEffect(() => {
     Aos.init({
       duration: 1800,
@@ -44,7 +44,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
                     <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
                   </div>
                   <Link
-                    to={"/publication"}
+                    to={"/animalInfo"}
                     className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                     onClick={handleCreateAdClick}
                   >
@@ -110,7 +110,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
                     <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
                   </div>
                   <Link
-                    to={"/publication"}
+                    to={"/animalInfo"}
                     className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                     onClick={handleCreateAdClick}
                   >
@@ -140,4 +140,3 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
 };
 
 export default SectionHomeFour
-
