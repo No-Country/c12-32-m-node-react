@@ -1,13 +1,15 @@
 import { useForm } from "react-hook-form";
 import imgGoogle from '../assets/googleImg.png'
-import { useState } from "react";
+import { useState, SyntheticEvent } from "react";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFillEyeSlashFill } from "react-icons/bs";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { LuMailQuestion } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 import {
-    GoogleAuthProvider,
-    signInWithPopup,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 import { auth } from "./firebase/config";
 import "sweetalert2/dist/sweetalert2.min.css";
@@ -33,6 +35,10 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
         },
       })
       .then((res) => {
+        console.log(res.data);
+        if (res.data.status === false) {
+          swal("Error", 'Contraseña Incorrecta', "error");
+        }
         const token = res.data.data.token;
         // Almacenar el token en las cookies
         document.cookie = `token=${token}; Secure; SameSite=Strict; path=/`;
@@ -55,10 +61,10 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
           })
         );
         swal("Excelente", "Inicio de sesión exitoso!", "success");
-        navigate("/form");
+        navigate("/profile");
       })
       .catch((error) => {
-        swal("Error", error.message, "error");
+        console.error(error.message)
       });
   };
 
@@ -66,9 +72,10 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
     return localStorage.getItem("token");
   };
 
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState<boolean>(true);
 
-  const showPassw = () => {
+  const showPassw = (e: SyntheticEvent) => {
+    e.preventDefault();
     setShowPassword(!showPassword);
   };
 
@@ -77,7 +84,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
     signInWithPopup(auth, provider)
       .then(() => {
         swal("Excelente", "Inicio de sesión exitoso!", "success");
-        navigate("/form");
+        navigate("/profile");
       })
       .catch((error) => {
         swal("Error", error.message, "error");
@@ -94,28 +101,34 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
         <h2 className="text-center text-3xl py-12">¡INGRESA!</h2>
         <div>
           <section className="inputContainer my-2">
-            <label htmlFor="email">Mail:</label>
+            <div className="flex items-center gap-1">
+              <label htmlFor="email">Mail </label>
+              <LuMailQuestion />
+            </div>
             <input
               type="email"
               id="email"
               {...register("email")}
-              className="w-full rounded-lg bg-white"
+              className="w-full rounded-lg h-8 bg-white"
             />
           </section>
           <section className="inputContainer my-2">
-            <label htmlFor="password">Contraseña:</label>
-            <div className="flex ju">
+            <div className="flex items-center gap-1">
+              <label htmlFor="password">Contraseña</label>
+              <RiLockPasswordLine />
+            </div>
+            <div className="flex relative">
               <input
                 type={showPassword ? "password" : "text"}
                 id="password"
                 {...register("password")}
-                className="w-11/12 rounded-l-lg bg-white"
+                className="w-full rounded-lg h-8 bg-white"
               />
               <button
-                onClick={() => showPassw()}
-                className="h-6 w-6 bg-white rounded-r-lg"
+                onClick={(e) => showPassw(e)}
+                className="h-auto bg-transparent text-3xl absolute right-2 bottom-1/2 translate-y-1/2"
               >
-                {showPassword ? <IoEyeSharp /> : <BsFillEyeSlashFill />}
+                {showPassword ? <IoEyeSharp className="" /> : <BsFillEyeSlashFill />}
               </button>
             </div>
           </section>

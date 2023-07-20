@@ -15,6 +15,7 @@ import {
   selectEmail,
   selectIsLoggedIn,
 } from "./redux/slice/authSlice";
+
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase/config";
 import ShowOnLogin, { ShowOnLogout } from "./ShowOnLogin";
@@ -233,7 +234,7 @@ const NavBar = () => {
       {shouldShowSections && (
         <>
           <SectionHomeOne handleCreateAdClick={handleCreateAdClick} />
-          <SectionHomeTwo />
+          <SectionHomeTwo  />
           <SectionHomeThree />
           <SectionHomeFour handleCreateAdClick={handleCreateAdClick} />
         </>

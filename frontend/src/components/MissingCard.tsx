@@ -34,7 +34,7 @@ const AdoptionList = () => {
           <br />
         </p>
         <section className="my-10 m-auto grid grid-cols-3 w-9/12 gap-8 bg-red justify-center">
-          <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
+          <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
             <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
               <img src={animalCard} alt="" className="rounded-md h-full" />
             </div>
@@ -66,7 +66,7 @@ const AdoptionList = () => {
               </div>
             </div>
           </div>
-          <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
+          <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
             <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
               <img src={gatito} alt="" className="rounded-lg h-full" />
             </div>
@@ -98,7 +98,7 @@ const AdoptionList = () => {
               </div>
             </div>
           </div>
-          <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
+          <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
             <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
               <img src={perro} alt="" className="rounded-md h-full" />
             </div>
@@ -130,7 +130,7 @@ const AdoptionList = () => {
               </div>
             </div>
           </div>
-          <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
+          <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
             <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
               <img src={animalCard} alt="" className="rounded-md h-full" />
             </div>

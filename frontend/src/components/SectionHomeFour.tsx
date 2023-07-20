@@ -12,7 +12,7 @@ interface SectionHomeFourProps {
 const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
   handleCreateAdClick,
 }) => {
-  
+
   useEffect(() => {
     Aos.init({
       duration: 1800,
@@ -33,7 +33,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
             data-aos="fade-down"
             data-aos-delay="500"
           >
-            <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+            <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
               <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
                 <img src={animalCard} alt="" className="rounded-md h-full" />
               </div>
@@ -66,7 +66,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
                 </div>
               </div>
             </div>
-            <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+            <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
               <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
                 <img src={animalCard} alt="" className="rounded-lg h-full" />
               </div>
@@ -99,7 +99,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
                 </div>
               </div>
             </div>
-            <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+            <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
               <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
                 <img src={animalCard} alt="" className="rounded-md h-full" />
               </div>
@@ -140,4 +140,3 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
 };
 
 export default SectionHomeFour
-
