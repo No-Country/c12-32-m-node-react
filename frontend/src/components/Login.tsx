@@ -3,18 +3,16 @@ import FormLogin from "./FormLogin";
 import FormUserRegister from "./FormUserRegister";
 import bgMainLogin from '../assets/bgLoginMain.webp'
 
-const Login = () => {
-
-  const [isLogin, setIsLogin] = useState<boolean>(true)
+const Login: React.FC = () => {
+  const [isLogin, setIsLogin] = useState<boolean>(true);
 
   const verifyAccess = () => {
-    setIsLogin(!isLogin)
-  }
-
+    setIsLogin(!isLogin);
+  };
 
   return (
     <div className="Login h-full bg-customBgLogin">
-      <img src={bgMainLogin} alt="" className="h-full md:h-[80vh]" />
+      <img src={bgMainLogin} alt="" className="h-full" />
       <div>
         {isLogin ? (
           <FormLogin verifyAccess={verifyAccess} />
@@ -27,3 +25,10 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+
+
+

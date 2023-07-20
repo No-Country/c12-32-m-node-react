@@ -12,7 +12,7 @@ interface SectionHomeFourProps {
 const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
   handleCreateAdClick,
 }) => {
-  
+
   useEffect(() => {
     Aos.init({
       duration: 1800,
@@ -140,4 +140,3 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
 };
 
 export default SectionHomeFour
-
