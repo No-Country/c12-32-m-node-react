@@ -5,23 +5,40 @@ import animalCard from "../../src/assets/img-card.jpg";
 import gatito from "../assets/gatito.jpg";
 import perro from "../assets/perro.jpg";
 import userImg from "../assets/userImg.png";
+import { useEffect } from "react";
+import Aos from "aos";
 
 const Profile = () => {
+
+  useEffect(() => {
+    Aos.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
+
+
   return (
     <div className="flex justify-center items-center h-screen ">
       <div className="w-5/6">
         <div className="text-center mb-8">
-          <h1 className="text-4xl mt-[6rem] text-center">Hola Paula!</h1>
+          <h1
+            className="text-4xl mt-[4rem] text-center"
+            data-aos="fade-down"
+            data-aos-delay="500"
+          >
+            ¡Hola Paula!
+          </h1>
         </div>
         <div className="flex mr-10">
           <div className="w-2/3 pr-4">
             <div className="h-auto">
               <div>
-                <h2 className="text-xl font-semibold mb-[-1rem] mt-[-1rem] text-centerfirst-line:">
-                  Mis publicaciones
+                <h2 className="text-2xl  mb-[-1rem] ml-40 mt-[0rem] first-line:">
+                  Mis Publicaciones
                 </h2>
-                <section className="my-10 m-auto grid grid-cols-3 w-9/12 gap-8 bg-red justify-center">
-                  <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+                <section className="my-10 m-auto grid grid-cols-3 w-9/12 gap-8 bg-red justify-center ml-[0rem]">
+                  <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
                     <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
                       <img
                         src={animalCard}
@@ -37,7 +54,7 @@ const Profile = () => {
                         </div>
                         <NavLink
                           to={"/animalInfo"}
-                          className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                          className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                         >
                           Info +
                         </NavLink>
@@ -56,7 +73,7 @@ const Profile = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+                  <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
                     <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
                       <img src={gatito} alt="" className="rounded-lg h-full" />
                     </div>
@@ -68,7 +85,7 @@ const Profile = () => {
                         </div>
                         <NavLink
                           to={"/animalInfo"}
-                          className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                          className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                         >
                           Info +
                         </NavLink>
@@ -87,7 +104,7 @@ const Profile = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+                  <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
                     <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
                       <img src={perro} alt="" className="rounded-md h-full" />
                     </div>
@@ -99,7 +116,7 @@ const Profile = () => {
                         </div>
                         <NavLink
                           to={"/animalInfo"}
-                          className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                          className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                         >
                           Info +
                         </NavLink>
@@ -118,7 +135,7 @@ const Profile = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+                  <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
                     <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
                       <img
                         src={animalCard}
@@ -134,7 +151,7 @@ const Profile = () => {
                         </div>
                         <NavLink
                           to={"/animalInfo"}
-                          className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                          className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                         >
                           Info +
                         </NavLink>
