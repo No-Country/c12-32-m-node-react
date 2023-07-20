@@ -8,9 +8,9 @@ export class PetsImagesEntity extends BasedEntity {
   @Column({ type: 'integer', nullable: false, name: 'id_pets' }) // relacion con pets
   idPets: number;
   */
-  @Column({ type: 'varchar',array:true, nullable: false })
+  @Column({ type: 'varchar', array: true, nullable: false })
   images: string[];
 
-  @ManyToOne(()=> PetsEntity,(pet)=>pet.images)
-  pets:PetsEntity
+  @ManyToOne(() => PetsEntity, (pet) => pet.images)
+  pets: PetsEntity;
 }

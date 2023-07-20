@@ -9,9 +9,47 @@ import { useEffect } from "react";
 import Aos from "aos";
 import { useSelector } from "react-redux";
 import { selectEmail } from "./redux/slice/authSlice";
+import { useForm } from "react-hook-form";
 
 const Profile = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
   const userEmail = useSelector(selectEmail);
+  const getEmailRegex = (): RegExp =>
+    /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  const submit = (data: any) => {
+    console.log("Datos enviados:", data);
+  };
+
+  // Función para validar la contraseña
+  const validatePassword = (value: string) => {
+    if (!value) {
+      return "Contraseña es requerida";
+    }
+    if (value.length < 8) {
+      return "La contraseña debe tener al menos 8 caracteres";
+    }
+    // Validar si la contraseña tiene al menos una letra mayúscula
+    if (!/[A-Z]/.test(value)) {
+      return "La contraseña debe contener al menos una letra mayúscula";
+    }
+
+    // Validar si la contraseña tiene al menos una letra minúscula
+    if (!/[a-z]/.test(value)) {
+      return "La contraseña debe contener al menos una letra minúscula";
+    }
+
+    // Validar si la contraseña tiene al menos un número
+    if (!/\d/.test(value)) {
+      return "La contraseña debe contener al menos un número";
+    }
+    return true; 
+  };
 
   useEffect(() => {
     Aos.init({
@@ -48,7 +86,7 @@ const Profile = () => {
                         className="rounded-md h-full"
                       />
                     </div>
-                    <div className="w-11/12 h-32 flex flex-col justify-between">
+                    <div className="card w-11/12 h-32  flex flex-col justify-between">
                       <div className="w-12/12 flex items-center justify-between">
                         <div className="flex items-center">
                           <h3 className="my-2 font-bold text-lg">TOBY</h3>
@@ -192,8 +230,14 @@ const Profile = () => {
                   <input
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="text"
-                    id="nombre"
+                    id="name"
+                    {...register("name", {
+                      required: "Nombre es requerido",
+                    })}
                   />
+                  {errors.name && typeof errors.name.message === "string" && (
+                    <p className="text-red-500">{errors.name.message}</p>
+                  )}
                 </div>
                 <div className="mb-4">
                   <label
@@ -205,8 +249,15 @@ const Profile = () => {
                   <input
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="text"
-                    id="apellido"
+                    id="lastName"
+                    {...register("lastName", {
+                      required: "Apellido es requerido",
+                    })}
                   />
+                  {errors.lastName &&
+                    typeof errors.lastName.message === "string" && (
+                      <p className="text-red-500">{errors.lastName.message}</p>
+                    )}
                 </div>
                 <div className="mb-4">
                   <label
@@ -219,7 +270,21 @@ const Profile = () => {
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="email"
                     id="mail"
+                    {...register("mail", {
+                      required: "Correo electrónico es requerido",
+                      pattern: {
+                        value: getEmailRegex(), // Usamos la función para obtener la expresión regular
+                        message: "Ingrese un correo electrónico válido",
+                      },
+                    })}
                   />
+                  {errors.mail && (
+                    <p className="text-red-500">
+                      {typeof errors.mail.message === "string"
+                        ? errors.mail.message
+                        : "Error en el formato del correo electrónico"}
+                    </p>
+                  )}
                 </div>
                 <div className="mb-4">
                   <label
@@ -231,8 +296,19 @@ const Profile = () => {
                   <input
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="password"
-                    id="contrasenia"
+                    id="contraseña"
+                    {...register("contraseña", {
+                      required: true,
+                      validate: validatePassword,
+                    })}
                   />
+                  {errors.contraseña && (
+                    <p className="text-red-500">
+                      {typeof errors.contraseña.message === "string"
+                        ? errors.contraseña.message
+                        : "Error en la contraseña"}
+                    </p>
+                  )}
                 </div>
                 <div className="mb-4">
                   <label
@@ -244,8 +320,16 @@ const Profile = () => {
                   <input
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="tel"
-                    id="telefono"
+                    id="phone"
+                    {...register("phone", {
+                      pattern: /^\d{10}$/,
+                    })}
                   />
+                  {errors.phone && (
+                    <p className="text-red-500">
+                      Ingrese un número de teléfono válido de 10 dígitos
+                    </p>
+                  )}
                 </div>
                 <div className="mb-4">
                   <label
@@ -257,13 +341,24 @@ const Profile = () => {
                   <input
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="text"
-                    id="direccion"
+                    id="direction"
+                    {...register("direction", {
+                      required: "La dirección es obligatoria",
+                    })}
                   />
+                  {errors.direction &&
+                    typeof errors.direction.message === "string" && (
+                      <p className="text-red-500">{errors.direction.message}</p>
+                    )}
                 </div>
               </div>
             </div>
             <div className="flex justify-center">
-              <button className="bg-customBgNavBar rounded-full text-black font-semibold px-10 py-2 mt-0">
+              <button
+                type="button"
+                onClick={handleSubmit(submit)}
+                className="bg-customBgNavBar rounded-full text-black font-semibold px-10 py-2 mt-0"
+              >
                 Editar
               </button>
             </div>
