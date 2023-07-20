@@ -234,7 +234,7 @@ const NavBar = () => {
       {shouldShowSections && (
         <>
           <SectionHomeOne handleCreateAdClick={handleCreateAdClick} />
-          <SectionHomeTwo />
+          <SectionHomeTwo  />
           <SectionHomeThree />
           <SectionHomeFour handleCreateAdClick={handleCreateAdClick} />
         </>

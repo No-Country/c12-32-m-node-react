@@ -12,6 +12,7 @@ const AdoptionCards = () => {
           offset: 100,
         });
       }, []);
+  
   return (
     <div>
       <div className="text-center my-8">
@@ -30,7 +31,7 @@ const AdoptionCards = () => {
         </p>
       </div>
       <section className="my-10 m-auto grid grid-cols-3 w-9/12 gap-8 bg-red justify-center">
-        <div className="card bg-customGrayCard w-full h-full rounded-md flex flex-col items-center py-3">
+        <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
           <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
             <img src={animalCard} alt="" className="rounded-md h-full" />
           </div>
@@ -62,7 +63,7 @@ const AdoptionCards = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
+        <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
           <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
             <img src={animalCard} alt="" className="rounded-lg h-full" />
           </div>
@@ -94,7 +95,7 @@ const AdoptionCards = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
+        <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
           <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
             <img src={animalCard} alt="" className="rounded-md h-full" />
           </div>
@@ -126,7 +127,7 @@ const AdoptionCards = () => {
             </div>
           </div>
         </div>
-        <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
+        <div className="card bg-customBtnNavBar1 w-full h-full rounded-md flex flex-col items-center py-3">
           <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
             <img src={animalCard} alt="" className="rounded-md h-full" />
           </div>

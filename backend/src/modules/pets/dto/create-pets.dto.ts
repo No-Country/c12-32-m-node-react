@@ -1,28 +1,49 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreatePetsDto {
-   
-    @IsString()
-    name: string;
+  @IsNotEmpty()
+  @ApiProperty({ description: 'name' })
+  @IsString()
+  name: string;
 
-    @IsString()
-    description: string;
-     
-    @IsNumber()
-    size: number;
+  @IsString()
+  @ApiProperty({ description: 'description' })
+  description: string;
 
-    @IsNumber()
-    age: number;
+  @IsNumber()
+  @ApiProperty({ description: 'size' })
+  size: number;
 
-    @IsString()
-    gender: string;
-  
-    @IsString()
-    lastSeen: string;
-  
-    @IsString()
-    race: string;
+  @IsNumber()
+  @ApiProperty({ description: 'age' })
+  age: number;
 
-    @IsString()
-    user_id:string
+  @IsString()
+  @ApiProperty({ description: 'gender' })
+  gender: string;
+
+  @IsString()
+  @ApiProperty({ description: 'lastSeen' })
+  lastSeen: string;
+
+  @IsString()
+  @ApiProperty({ description: 'category' })
+  category: string;
+
+  @IsString()
+  @ApiProperty({ description: 'phone' })
+  phone: string;
+
+  @IsString()
+  @ApiProperty({ description: 'direction' })
+  direction: string;
+
+  @IsString()
+  @ApiProperty({ description: 'descriptionPublication' })
+  descriptionPublication: string;
+
+  @IsString()
+  @ApiProperty({ description: 'token' })
+  token: string;
 }
