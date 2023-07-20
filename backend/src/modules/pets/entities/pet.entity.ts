@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  ManyToOne,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { BasedEntity } from '../../shared/entities/base.entity';
 import { PetsImagesEntity } from './pets-images.entity';
 import { PostEntity } from 'src/modules/posts/entities/post.entity';
@@ -33,11 +27,11 @@ export class PetsEntity extends BasedEntity {
   @Column({ type: 'varchar', nullable: false })
   race: string;
 
-  @ManyToOne(() => UserEntity, (user) => user.pets)
-  user: UserEntity;
+  @ManyToOne(()=>UserEntity,(user)=>user.pets)
+  user:UserEntity
 
-  @OneToMany(() => PetsImagesEntity, (images) => images.pets, {
-    eager: true,
+  @OneToMany(() => PetsImagesEntity, (images) => images.pets,{
+    eager:true
   })
   images: PetsImagesEntity[];
 
