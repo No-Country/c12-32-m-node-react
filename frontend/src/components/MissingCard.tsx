@@ -8,13 +8,13 @@ import perro from "../assets/perro.jpg"
 import Aos from "aos";
 
 const AdoptionList = () => {
-    useEffect(() => {
-      Aos.init({
-        duration: 1800,
-        offset: 100,
-      });
-    }, []);
-  
+  useEffect(() => {
+    Aos.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <div className="h-auto">
       <div>
@@ -46,7 +46,7 @@ const AdoptionList = () => {
                 </div>
                 <Link
                   to={"/animalInfo"}
-                  className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                  className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                 >
                   Info +
                 </Link>
@@ -78,7 +78,7 @@ const AdoptionList = () => {
                 </div>
                 <Link
                   to={"/animalInfo"}
-                  className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                  className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                 >
                   Info +
                 </Link>
@@ -110,7 +110,7 @@ const AdoptionList = () => {
                 </div>
                 <Link
                   to={"/animalInfo"}
-                  className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                  className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                 >
                   Info +
                 </Link>
@@ -142,7 +142,7 @@ const AdoptionList = () => {
                 </div>
                 <Link
                   to={"/animalInfo"}
-                  className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                  className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                 >
                   Info +
                 </Link>

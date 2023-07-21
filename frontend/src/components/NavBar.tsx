@@ -135,7 +135,7 @@ const NavBar = () => {
 
   return (
     <header>
-      <nav className="flex items-center  justify-between px-10 bg-customBgNavBar h-20  ">
+      <nav className="flex items-center w-full justify-between px-10 bg-customBgNavBar h-20 ">
         <div className="Logo w-[6rem] flex items-center justify-center text-white">
           <img src={LOGO} alt="logo" className="mr-10 " />
         </div>
@@ -234,7 +234,7 @@ const NavBar = () => {
       {shouldShowSections && (
         <>
           <SectionHomeOne handleCreateAdClick={handleCreateAdClick} />
-          <SectionHomeTwo  />
+          <SectionHomeTwo />
           <SectionHomeThree />
           <SectionHomeFour handleCreateAdClick={handleCreateAdClick} />
         </>

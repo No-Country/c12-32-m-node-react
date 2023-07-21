@@ -11,8 +11,8 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="Login h-full bg-customBgLogin">
-      <img src={bgMainLogin} alt="" className="h-full" />
+    <div className=" lg:h-heightPublicationVh sm:h-96  bg-customBgLogin">
+      <img src={bgMainLogin} alt="" className="h-full w-full" />
       <div>
         {isLogin ? (
           <FormLogin verifyAccess={verifyAccess} />

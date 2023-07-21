@@ -53,7 +53,7 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
   return (
     <>
       <div>
-        <div className="lg:flex">
+        <div className="lg:flex w-full">
           <div
             className="rounded-tl-full rounded-bl-full overflow-hidden w-full md:w-1/2 h-screen bg-cover bg-center"
             style={{

@@ -48,7 +48,7 @@ const Profile = () => {
     if (!/\d/.test(value)) {
       return "La contraseña debe contener al menos un número";
     }
-    return true; 
+    return true;
   };
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center h-screen ">
+    <div className="flex justify-center items-center h-auto ">
       <div className="w-5/6">
         <div className="text-center mb-8">
           <h1

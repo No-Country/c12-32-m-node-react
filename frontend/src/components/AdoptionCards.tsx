@@ -1,4 +1,4 @@
-import {useEffect} from "react"
+import { useEffect } from "react"
 import { Link } from "react-router-dom";
 import animalCard from "../assets/img-card.jpg";
 import { IoLocationSharp, IoMaleOutline } from "react-icons/io5";
@@ -6,13 +6,13 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import Aos from "aos";
 
 const AdoptionCards = () => {
-      useEffect(() => {
-        Aos.init({
-          duration: 1800,
-          offset: 100,
-        });
-      }, []);
-  
+  useEffect(() => {
+    Aos.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
+
   return (
     <div>
       <div className="text-center my-8">
@@ -43,7 +43,7 @@ const AdoptionCards = () => {
               </div>
               <Link
                 to={"/animalInfo"}
-                className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
               >
                 Info +
               </Link>
@@ -75,7 +75,7 @@ const AdoptionCards = () => {
               </div>
               <Link
                 to={"/animalInfo"}
-                className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
               >
                 Info +
               </Link>
@@ -107,7 +107,7 @@ const AdoptionCards = () => {
               </div>
               <Link
                 to={"/animalInfo"}
-                className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
               >
                 Info +
               </Link>
@@ -139,7 +139,7 @@ const AdoptionCards = () => {
               </div>
               <Link
                 to={"/animalInfo"}
-                className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
               >
                 Info +
               </Link>

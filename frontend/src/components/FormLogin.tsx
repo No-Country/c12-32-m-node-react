@@ -128,7 +128,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
                 onClick={(e) => showPassw(e)}
                 className="h-auto bg-transparent text-3xl absolute right-2 bottom-1/2 translate-y-1/2"
               >
-                {showPassword ? <IoEyeSharp className="" /> : <BsFillEyeSlashFill />}
+                {showPassword ? <IoEyeSharp className="text-gray-400" /> : <BsFillEyeSlashFill className="text-gray-400" />}
               </button>
             </div>
           </section>

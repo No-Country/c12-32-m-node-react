@@ -45,7 +45,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
                   </div>
                   <Link
                     to={"/animalInfo"}
-                    className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                    className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                     onClick={handleCreateAdClick}
                   >
                     Info +
@@ -78,7 +78,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
                   </div>
                   <Link
                     to={"/animalInfo"}
-                    className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                    className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                     onClick={handleCreateAdClick}
                   >
                     Info +
@@ -111,7 +111,7 @@ const SectionHomeFour: React.FC<SectionHomeFourProps> = ({
                   </div>
                   <Link
                     to={"/animalInfo"}
-                    className="border-3 rounded-full h-[24px] w-20 text-center bg-gray-400 hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                    className="border-3 flex justify-center items-center rounded-full h-[32px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
                     onClick={handleCreateAdClick}
                   >
                     Info +
