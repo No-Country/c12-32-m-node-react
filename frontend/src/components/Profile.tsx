@@ -1,4 +1,4 @@
-import { AiOutlineClockCircle } from "react-icons/ai";
+import { AiOutlineClockCircle, AiOutlineUser } from "react-icons/ai";
 import { IoLocationSharp, IoMaleOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import animalCard from "../../src/assets/img-card.jpg";
@@ -10,6 +10,8 @@ import Aos from "aos";
 import { useSelector } from "react-redux";
 import { selectEmail } from "./redux/slice/authSlice";
 import { useForm } from "react-hook-form";
+import { FaRegEdit } from "react-icons/fa";
+import {useState} from "react"
 
 const Profile = () => {
   const {
@@ -57,6 +59,22 @@ const Profile = () => {
       offset: 100,
     });
   }, []);
+
+    const [userImg, setUserImg] = useState<string | null>(null);
+
+    // Función para manejar la carga de imágenes
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setUserImg(reader.result as string);
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+
 
   return (
     <div className="flex justify-center items-center h-screen ">
@@ -216,8 +234,25 @@ const Profile = () => {
           </div>
           <div className="w-1/3">
             <div className="flex flex-col justify-center items-center mb-8">
-              <div className="rounded-full w-24 h-24 overflow-hidden">
-                <img src={userImg} alt="Foto de perfil" />
+              <div className="relative rounded-full w-24 h-24 overflow-hidden">
+                 {userImg ? (
+        <img src={userImg} alt="Foto de perfil" />
+      ) : (
+                    <div className=" bg-gray-200 w-24 h-24">        
+        </div>
+                )}
+                <div className="absolute bottom-0 right-9 cursor-pointer">
+        <label htmlFor="fileInput">
+          <FaRegEdit className="text-white" />
+        </label>
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/*"
+          style={{ display: 'none' }}
+          onChange={handleImageChange}
+        />
+      </div>                 
               </div>
               <div>
                 <div className="mb-4">

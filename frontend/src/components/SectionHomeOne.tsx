@@ -69,7 +69,7 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
             className="lg:flex lg:flex-col lg:justify-center lg:items-center lg:w-1/2 lg:p-8 md:py-35"
           >
             <h1
-              className="lg:text-5xl text-center text-4xl mobile:text-center mobile:ml-[-5rem] text-gray-800 font-semibold lg:mb-4 mobile:absolute mobile:top-1/2 mobile:mt-[-20rem] transform -translate-y-1/2"
+              className="lg:text-5xl text-center text-4xl mobile:text-center mobile:ml-[-1rem] text-gray-800 font-semibold lg:mb-4 mobile:absolute mobile:top-1/2 mobile:mt-[-15rem] transform -translate-y-1/2"
               data-aos="fade-down"
               data-aos-delay="500"
             >
