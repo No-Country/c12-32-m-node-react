@@ -1,10 +1,9 @@
-import { AiOutlineClockCircle, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineClockCircle } from "react-icons/ai";
 import { IoLocationSharp, IoMaleOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 import animalCard from "../../src/assets/img-card.jpg";
 import gatito from "../assets/gatito.jpg";
 import perro from "../assets/perro.jpg";
-import userImg from "../assets/userImg.png";
 import { useEffect } from "react";
 import Aos from "aos";
 import { useSelector } from "react-redux";
@@ -74,7 +73,6 @@ const Profile = () => {
         reader.readAsDataURL(file);
       }
     };
-
 
   return (
     <div className="flex justify-center items-center h-screen ">

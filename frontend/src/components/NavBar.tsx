@@ -144,7 +144,6 @@ const NavBar = () => {
       setShowColoredSquare(!showColoredSquare);
     };
 
-
   return (
     <header>
       <nav className="flex items-center justify-between px-10 bg-customBgNavBar h-20">
