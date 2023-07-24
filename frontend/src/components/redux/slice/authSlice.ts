@@ -36,6 +36,8 @@ const authSlice = createSlice({
     },
       REMOVE_ACTIVE_USER: (state, action: PayloadAction<ActiveUser>) => {   
       //Esta accion actualiza el estado de la aplicación con los datos de un usuario activo.
+        console.log(action);
+        
       (state.isLoggedIn = false),
         (state.email = null),
         (state.name = null),
