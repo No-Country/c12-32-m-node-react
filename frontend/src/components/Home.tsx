@@ -5,7 +5,9 @@ import SectionHomeThree from "./SectionHomeThree";
 import SectionHomeFour from "./SectionHomeFour";
 
 function Home() {
-    const [shouldShowSections, setShouldShowSections] = useState(false);
+  const [shouldShowSections, setShouldShowSections] = useState(false);
+  console.log(shouldShowSections);
+
     const handleCreateAdClick = () => {
       setShouldShowSections(false);
     };
@@ -17,7 +19,10 @@ function Home() {
     />,
     <SectionHomeTwo key="sectionHomeTwo" />,
     <SectionHomeThree key="sectionHomeThree" />,
-    <SectionHomeFour key="sectionHomeFour" />,
+    <SectionHomeFour
+      handleCreateAdClick={handleCreateAdClick}
+      key="sectionHomeFour"
+    />,
   ];
 }
 
