@@ -133,13 +133,53 @@ const NavBar = () => {
     }
   };
 
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const [showColoredSquare, setShowColoredSquare] = useState(false);
+
+   const handleMobileMenuClick = () => {
+     setShowMobileMenu(!showMobileMenu);
+  };
+  
+    const handleButtonSquareClick = () => {
+      setShowColoredSquare(!showColoredSquare);
+    };
+
+
   return (
     <header>
-      <nav className="flex items-center  justify-between px-10 bg-customBgNavBar h-20  ">
+      <nav className="flex items-center justify-between px-10 bg-customBgNavBar h-20">
         <div className="Logo w-[6rem] flex items-center justify-center text-white">
-          <img src={LOGO} alt="logo" className="mr-10 " />
+          <NavLink to="/">
+            <img src={LOGO} alt="logo" className="mr-10" />
+          </NavLink>
         </div>
-        <ul className="flex  space-x-10 text-lg">
+        <div className="md:hidden flex items-center mb-[-6rem] ml-[5rem]">
+          <button
+            className={`text-black hover:text-gray-700 ${
+              showColoredSquare ? "bg-customBgNavBar " : ""
+            }`}
+            onClick={() => {
+              handleMobileMenuClick();
+              handleButtonSquareClick();
+            }}
+          >
+            <svg
+              className="h-6 w-6 fill-current"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 5h18a1 1 0 010 2H3a1 1 0 010-2zm0 7h18a1 1 0 010 2H3a1 1 0 010-2zm0 7h18a1 1 0 010 2H3a1 1 0 010-2z"
+              />
+            </svg>
+          </button>
+        </div>
+        <ul
+          className={`${
+            showMobileMenu ? "block" : "hidden"
+          } md:flex md:space-x-10 md:text-lg mt-8 md:mt-0 absolute md:relative left-0 md:left-auto top-16 md:top-0 bg-customBgNavBar md:bg-transparent z-10`}
+        >
           <li>
             <a
               href="#inicio"
@@ -234,7 +274,7 @@ const NavBar = () => {
       {shouldShowSections && (
         <>
           <SectionHomeOne handleCreateAdClick={handleCreateAdClick} />
-          <SectionHomeTwo  />
+          <SectionHomeTwo />
           <SectionHomeThree />
           <SectionHomeFour handleCreateAdClick={handleCreateAdClick} />
         </>

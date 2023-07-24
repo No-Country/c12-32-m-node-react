@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -59,7 +59,14 @@ const handleAgregarImagen = (event: React.ChangeEvent<HTMLInputElement>) => {
 
     console.log([...imagenes, ...newImagenes]); // Aquí aún puede mostrar el estado desactualizado
   }
-};
+  };
+  
+    const handleRemoveImagen = (index: number) => {
+      // uso el index para borrar la imagen del estado
+      const updatedImagenes = [...imagenes];
+      updatedImagenes.splice(index, 1);
+      setImagenes(updatedImagenes);
+    };
 
 const getTokenFromLocalStorage = (): string | null => {
   const token = localStorage.getItem("token");
@@ -129,11 +136,12 @@ const submit = async (data: any) => {
     console.error("Error al enviar el formulario:", error);
     swal("Error", "Ocurrió un error al enviar el formulario", "error");
   }
-};
+  };
+
   return (
     <div className="lg:flex flex-initial">
       <div className="container mx-auto px-4 bg-gray-200 lg:w-1/2">
-         <div className="flex flex-col justify-center items-center lg:min-h-screen h-96">
+        <div className="flex flex-col justify-center items-center lg:min-h-screen h-96">
           <h1 className="text-gray-600 text-2xl tracking-widest mb-8">
             AGREGAR IMÁGENES
           </h1>
@@ -163,23 +171,32 @@ const submit = async (data: any) => {
                 <path d="M12 4v16m8-8H4"></path>
               </svg>
             </label>
-          </div> 
+          </div>
           <NavLink to={"/"}>
             <button className="absolute top-20 left-0 m-4 bg-customBgNavBar hover:bg-gray-500 text-white font-medium py-2 px-4 rounded-md">
               Volver
             </button>
           </NavLink>
-        </div> 
-         <div>
-          {imagenes.map((imagen, index) => (
-            <img
-              key={index}
-              src={imagen}
-              alt={`Imagen ${index + 1}`}
-              className="mb-4 w-full h-auto"
-            />
-          ))}
-        </div>  
+        </div>
+        <div>
+         <div className="grid grid-cols-3 gap-4 mt-[-15rem]">
+  {imagenes.map((imagen, index) => (
+    <div key={index} className="relative">
+      <img
+        src={imagen}
+        alt={`Imagen ${index + 1}`}
+        className="mb-4 w-[15rem] h-auto"
+      />
+      <button
+        className="absolute top-0 right-0 bg-red-500 text-white font-medium py-1 px-2 rounded-md"
+        onClick={() => handleRemoveImagen(index)}
+      >
+        X
+      </button>
+    </div>
+  ))}
+</div>
+        </div>
       </div>
       <div className="w-full md:w-1/2 p-4">
         <form onSubmit={handleSubmit(submit)}>
@@ -304,7 +321,7 @@ const submit = async (data: any) => {
                 <option value="pequeno">Pequeño</option>
                 <option value="mediano">Mediano</option>
                 <option value="grande">Grande</option>
-              </select> 
+              </select>
               {errors.size && typeof errors.size.message === "string" && (
                 <p className="text-red-500">{errors.size.message}</p>
               )}
