@@ -6,8 +6,6 @@ import {
   SET_ACTIVE_USER,
   selectEmail,
 } from "./redux/slice/authSlice";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase/config";
 import swal from "sweetalert";
 import "sweetalert2/dist/sweetalert2.min.css";
 import axios from "axios";
@@ -23,7 +21,7 @@ const FormUser = () => {
   const dispatch = useDispatch();
   const userEmail = useSelector(selectEmail);
   const userEmailSlice = userEmail?.split("@")[0];
-  const [displayName, setDisplayName] = useState("");
+  const [displayName] = useState("");
 
   const [imagenes, setImagenes] = useState<string[]>([]);
 
