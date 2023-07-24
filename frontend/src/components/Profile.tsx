@@ -74,7 +74,6 @@ const Profile = () => {
       }
     };
 
-
   return (
     <div className="flex justify-center items-center h-screen ">
       <div className="w-5/6">
