@@ -25,6 +25,7 @@ const FormUser = () => {
 
   const [imagenes, setImagenes] = useState<string[]>([]);
 
+  
   useEffect(() => {
     dispatch(
       SET_ACTIVE_USER({
