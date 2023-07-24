@@ -15,7 +15,7 @@ function Home() {
   return [
     <SectionHomeOne
       handleCreateAdClick={handleCreateAdClick}
-      key="sectionHomeOne"
+       key="sectionHomeOne"
     />,
     <SectionHomeTwo key="sectionHomeTwo" />,
     <SectionHomeThree key="sectionHomeThree" />,
