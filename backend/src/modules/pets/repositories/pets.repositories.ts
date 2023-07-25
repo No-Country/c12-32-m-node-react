@@ -26,7 +26,7 @@ export class PetsRepository extends BaseRepository<PetsEntity> {
   ) {
     super(petsEntity);
   }
-
+/*
   async CreatePets(data: CreatePetsDto) {
     const ruta = this._main + ' /CreatePets';
     const { token, ...body } = data;
@@ -71,6 +71,25 @@ export class PetsRepository extends BaseRepository<PetsEntity> {
        );
     }
   }
+*/
+  /*
+  async createComments(user_id:string,comments:CreateCommentDto,post_id:string){
+    try {
+      const user=await this.userEntity.findOne({where:{id:user_id}})
+      const posts=await this.postEntity.findOne({where:{id:post_id}})
+      if(!posts) throw new BadRequestException("posts dont exist")
+      const comment=this.commentEntity.create({
+        ...comments,
+        user,
+        posts
+      })
+      await this.commentEntity.save(comment)
+      return {comment,message:"created succesfully"}
+    } catch (error) {
+      throw new InternalServerErrorException("check your data")  
+    }
+    }
+    */
 
   async getAllpetsByuser(user_id: string) {
     try {
@@ -84,19 +103,14 @@ export class PetsRepository extends BaseRepository<PetsEntity> {
     }
   }
 
+  
   async findPets(id: string) {
     const ruta = this._main + ' /findPets';
     const respuesta = await this.petsEntity.find({
       where: { id },
     });
 
-    respuesta.forEach((pets) => {
-      pets.images.forEach((image) => {
-        image.images = image.images.map((imageString) =>
-          JSON.parse(imageString.replace(/\\/g, '')),
-        );
-      });
-    });
+   
 
     return this.respuestaService.respuestaHttp(
       true,
@@ -105,4 +119,6 @@ export class PetsRepository extends BaseRepository<PetsEntity> {
       'Lista Exitosa',
     );
   }
+  
 }
+

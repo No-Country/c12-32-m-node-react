@@ -19,6 +19,7 @@ export class PetsImagesRepository extends BaseRepository<PetsImagesEntity> {
     super(petsImagesEntity);
   }
 
+  /*
   async uploadImages(petsId: string, files: Express.Multer.File[]) {
     const ruta = this._main + ' /CreatePets';
     const images = await Promise.all(
@@ -43,4 +44,5 @@ export class PetsImagesRepository extends BaseRepository<PetsImagesEntity> {
       'Registro exitoso',
     );
   }
+  */
 }

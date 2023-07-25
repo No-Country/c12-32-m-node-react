@@ -13,17 +13,14 @@ import { UpdatePetsDto } from './dto/update-pets.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { Auth } from '../auth/decorators/auth.decorator';
 import { ValidRoles } from '../auth/strategies';
+import { UserEntity } from '../auth/entities/user.entity';
+import { getUser } from '../auth/decorators/get-user.decorator';
 
 @ApiTags('Registro - Pets')
 @Controller('api/v1/pets')
 export class PetsController {
   constructor(private readonly petsService: PetsService) {}
   
-  @Auth(ValidRoles.USER)
-  @Post()
-  PetsCreate(@Body() createAuthDto: CreatePetsDto) {
-    return this.petsService.createPets(createAuthDto);
-  }
 
   @Get()
   findAll() {

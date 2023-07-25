@@ -13,10 +13,11 @@ import { PetsImagesService } from './services/pets-images.service';
 import { PetsImagesController } from './controllers/pets-images.controller';
 import { RespuestaService } from '../shared/services';
 import { JwtUtil } from '../shared/services/jwt.util';
+import { PostCommentEntity } from './entities/pets-comment.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([PetsEntity, PetsImagesEntity]),
+    TypeOrmModule.forFeature([PetsEntity, PetsImagesEntity,PostCommentEntity]),
     AuthModule,
   ],
 

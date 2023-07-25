@@ -5,12 +5,15 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create(AppModule,{cors:true});
+  
+  app.enableCors();
+  
   const logger = new Logger('bootstrap');
   app.useGlobalPipes(
     new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
   );
-  app.setGlobalPrefix("api/v1")
+  //app.setGlobalPrefix("api/v1")
   const config = new DocumentBuilder()
     .setTitle('NO COUNTRY - C12-32-M-NODE-REACT')
     .setDescription(
@@ -24,7 +27,7 @@ async function bootstrap() {
       filter: true,
     },
   });
-  app.enableCors();
+  
   await app.listen(process.env.PORT || 4000);
   logger.log(
     `API-SisAdmin Ready: Development on Line! on PORT: ${process.env.PORT}`,

@@ -8,11 +8,12 @@ export class PetsImagesService extends BaseService<PetsImagesEntity> {
   constructor(private readonly petsImagesRepository: PetsImagesRepository) {
     super(petsImagesRepository);
   }
-
+/*
   async createPetsImagesRepository(
     petsId: string,
     files: Express.Multer.File[],
   ) {
     return await this.petsImagesRepository.uploadImages(petsId, files);
   }
+  */
 }

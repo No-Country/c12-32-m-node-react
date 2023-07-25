@@ -15,6 +15,7 @@ import { ApiTags } from '@nestjs/swagger';
 export class PetsImagesController {
   constructor(private readonly petsImagesService: PetsImagesService) {}
 
+  /*
   @Post(':petsId')
   @UseInterceptors(FilesInterceptor('files'))
   async uploadImages(
@@ -24,4 +25,5 @@ export class PetsImagesController {
     //return files;
     return this.petsImagesService.createPetsImagesRepository(petsId, files);
   }
+  */
 }

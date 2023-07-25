@@ -1,35 +1,63 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreatePetsDto {
+
+
   @IsNotEmpty()
-  @ApiProperty({ description: 'name' })
+  @ApiProperty({ description: "title" })
   @IsString()
-  name: string;
-
+  title: string;
+  
+  @IsNotEmpty()
+  @ApiProperty({ description: 'post_description' })
   @IsString()
-  @ApiProperty({ description: 'description' })
-  description: string;
+  post_description: string;
 
-  @IsNumber()
+  @IsNotEmpty()
+  @ApiProperty({ description: 'type_publication' })
+  @IsString()
+  type_publication: string;
+  
+  @IsNotEmpty()
+  @ApiProperty({ description: 'is_found' })
+  is_found: any;
+ 
+  likes: number;
+ 
+  @IsNotEmpty()
+  @ApiProperty({ description: 'pet_name' })
+  @IsString()
+  pet_name: string;
+
+  @IsNotEmpty()
+  @ApiProperty({ description: 'pet_description' })
+  @IsString()
+  pet_description: string;
+
+  @IsNotEmpty()
   @ApiProperty({ description: 'size' })
-  size: number;
-
-  @IsNumber()
-  @ApiProperty({ description: 'age' })
-  age: number;
-
   @IsString()
+  size: string;
+
+  @IsNotEmpty()
+  @ApiProperty({ description: 'age' })
+  @IsString()
+  age: string;
+
+  @IsNotEmpty()
   @ApiProperty({ description: 'gender' })
+  @IsString()
   gender: string;
 
-  @IsString()
+  @IsNotEmpty()
   @ApiProperty({ description: 'lastSeen' })
-  lastSeen: string;
+  @IsString()
+  lastSeen: string
 
   @IsString()
-  @ApiProperty({ description: 'category' })
-  category: string;
+  @ApiProperty({ description: 'post_category' })
+  post_category: string;
 
   @IsString()
   @ApiProperty({ description: 'phone' })
@@ -39,11 +67,10 @@ export class CreatePetsDto {
   @ApiProperty({ description: 'direction' })
   direction: string;
 
-  @IsString()
-  @ApiProperty({ description: 'descriptionPublication' })
-  descriptionPublication: string;
-
-  @IsString()
-  @ApiProperty({ description: 'token' })
-  token: string;
+  @ApiProperty({
+    description: 'Product image',
+    nullable: false,
+    default: 'You must upload image',
+  })
+  images: string[];
 }

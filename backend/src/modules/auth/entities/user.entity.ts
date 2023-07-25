@@ -1,6 +1,5 @@
 import { PetsEntity } from 'src/modules/pets/entities/pet.entity';
-import { PostEntity } from 'src/modules/posts/entities/post.entity';
-import { PostCommentEntity } from 'src/modules/posts/entities/post_comment.entity';
+import { PostCommentEntity } from 'src/modules/pets/entities/pets-comment.entity';
 import { BasedEntity } from 'src/modules/shared/entities/base.entity';
 import { Column, Entity, OneToMany } from 'typeorm';
 
@@ -33,8 +32,6 @@ export class UserEntity extends BasedEntity {
   @OneToMany(()=> PetsEntity,(pet)=>pet.user)
   pets:PetsEntity[]
 
-  @OneToMany(() => PostEntity, (post) => post.user)
-  posts: PostEntity[];
   @OneToMany(() => PostCommentEntity, (comment) => comment.user)
   comments: PostCommentEntity[];
 }
