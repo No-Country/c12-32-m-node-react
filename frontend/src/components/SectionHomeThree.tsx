@@ -20,7 +20,7 @@ const SectionHomeThree = () => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
         style={{ marginTop: "-400px" }}
-        className="w-full"
+        className="w-full hidden md:block"
       >
         <path
           fill="#7f7f7f"
@@ -30,7 +30,7 @@ const SectionHomeThree = () => {
       </svg>
       <div
         id="comoFunciona"
-        className="flex flex-col items-center"
+        className="flex flex-col items-center pt-10"
         style={{
           backgroundImage: `url(${huellas})`,
           backgroundSize: "cover",
@@ -40,7 +40,7 @@ const SectionHomeThree = () => {
       >
         {/* Código del contenido 3 */}
         <h1
-          className="text-5xl text-white font-semibold  text-center mb-4"
+          className=" text-5xl text-white font-semibold  text-center mt-20"
           data-aos="fade-down"
           data-aos-delay="500"
         >

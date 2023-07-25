@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
@@ -15,6 +16,7 @@ const SectionHomeTwo = () => {
     <>
       {/* Código de waves */}
       <svg
+        className="hidden md:block"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
         style={{ marginTop: "-200px" }}
@@ -28,17 +30,17 @@ const SectionHomeTwo = () => {
       {/* Código del contenido 2 */}
       <div
         id="quienesSomos"
-        className="flex justify-center items-center h-screen bg-custombgSectionTwo"
+        className="flex mobile:flex-col justify-center items-center lg:h-screen bg-custombgSectionTwo"
       >
-        <div className="text-left">
+        <div className="lg:text-left">
           <h1
-            className="text-6xl font-semibold"
+            className="mobile:mt-[15rem] text-6xl font-semibold mobile:text-center mobile:mb-8"
             data-aos="fade-down"
             data-aos-delay="500"
           >
             ¿QUIÉNES SOMOS?
           </h1>
-          <p className="text-2xl font-semibold pt-8 mb-[10rem]">
+          <p className="text-2xl font-semibold lg:pt-8 lg:mb-[10rem] mobile:text-center mobile:px-6 mobile-mb-8 ">
             En <a className="text-white">PET SOCIETY</a>, valoramos la empatía,
             <br />
             la solidaridad y el trabajo en equipo.
@@ -58,7 +60,7 @@ const SectionHomeTwo = () => {
           </p>
         </div>
         <div
-          className="w-[45vh] h-80 ml-[10rem] mb-10 bg-customBgSectionTwop-4 rounded-lg"
+          className="w-[45vh] h-80 lg:ml-[10rem] lg:mb-10 bg-customBgSectionTwop-4 rounded-lg"
           data-aos="fade-down"
           data-aos-delay="800"
         >
