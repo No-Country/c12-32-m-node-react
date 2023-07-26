@@ -13,11 +13,6 @@ export class CreatePetsDto {
   @ApiProperty({ description: 'post_description' })
   @IsString()
   post_description: string;
-
-  @IsNotEmpty()
-  @ApiProperty({ description: 'type_publication' })
-  @IsString()
-  type_publication: string;
   
   @IsNotEmpty()
   @ApiProperty({ description: 'is_found' })

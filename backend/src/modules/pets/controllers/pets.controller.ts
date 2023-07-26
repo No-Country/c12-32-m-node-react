@@ -52,7 +52,7 @@ export class PetsController {
   @Auth(ValidRoles.USER)
   @Post("pets_commets/:id")
   createComment(
-    @Body() comment:CreateCommentsDto,
+    @Body() comment:string,
     @getUser() user:UserEntity,
     @Param('id') id: string
     ) {

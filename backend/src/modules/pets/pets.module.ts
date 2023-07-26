@@ -33,5 +33,6 @@ import { PostCommentEntity } from './entities/pets-comment.entity';
     RespuestaService,
     JwtUtil,
   ],
+  exports:[PetsService,PetsRepository,PetsImagesRepository,Repository]
 })
 export class PetsModule {}

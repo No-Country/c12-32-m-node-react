@@ -19,9 +19,6 @@ export class PetsEntity extends BasedEntity {
   @Column({ type: 'varchar' })
   post_description: string;
 
-  @Column({ type: 'varchar', nullable: true })
-  type_publication: string;
-
   @Column({ type: 'bool', default: null, nullable: true })
   is_found: boolean;
 

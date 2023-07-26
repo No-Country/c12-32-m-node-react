@@ -28,14 +28,13 @@ export class PetsService extends BaseService<PetsEntity> {
     super(petsRepository);
   }
 
-  async createComment(pets_id:string,user_id:string,commentsBody:CreateCommentsDto){
+  async createComment(pets_id:string,user_id:string,commentsBody:string){
 try {
-  const{comment}=commentsBody
   const pets=await this.petsRepository.findOne({where:{id:pets_id}})
   const user=await this.userRepository.findOne({where:{id:user_id}})
   const comments=this.petsCommentRepository.create({
     user,
-   comment,
+   comment:commentsBody,
    pets
   })
   await this.petsCommentRepository.save(comments)
@@ -46,9 +45,11 @@ try {
 
 async CreateLikes(pets_id:string,user_id:string){
 try {
-  
+  const findPet=await this.petsRepository.findOne({where:{id:pets_id}})
+  const pets_update=await this.petsRepository.update({id:pets_id},{likes:findPet.likes+1})
+  return pets_update
 } catch (error) {
-  
+  throw error
 }
 }
 
