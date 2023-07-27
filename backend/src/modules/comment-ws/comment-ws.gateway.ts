@@ -43,6 +43,8 @@ handleDisconnect(client: Socket) {
 }
 
 //recibe lo que se envie en el evento
+
+
 @SubscribeMessage("comment_publication")
 async handlermessageFromCLient(client:Socket,payload_comment:messageInterface){
  const user_id=this.commentWsService.getUserId(client.id)
@@ -51,6 +53,7 @@ async handlermessageFromCLient(client:Socket,payload_comment:messageInterface){
  this.wss.emit("comment-complete",
    Publication
   )
+  /*
 console.log(client.id,payload_comment)
 //emite a todos los clientes menos el inicial
 client.broadcast.emit("name-evemt",{
@@ -64,6 +67,8 @@ this.wss.emit("name-event",{
 //ect ect
 //client.join("venta") unirse
 //this.wss.to(clientId:string) lo unes a otro lado
+}
+*/
 }
 
 }

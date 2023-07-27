@@ -102,6 +102,13 @@ export class UserRepository extends BaseRepository<UserEntity> {
     }
   }
 
+  async getInfoUser(user_id:string){
+    const user = await this.userEntity.findOne({
+      where: { id:user_id},
+    });
+   delete user.password
+    return user
+  }
   private getJwtToken(payload: JwtPayload) {
     return this.jwtService.sign(payload);
   }

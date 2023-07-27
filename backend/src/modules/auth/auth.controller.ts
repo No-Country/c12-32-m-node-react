@@ -14,6 +14,8 @@ import { ApiProperty, ApiTags } from '@nestjs/swagger';
 import { LoginUserDto } from './dto/login-user.dto';
 import { Auth } from './decorators/auth.decorator';
 import { ValidRoles } from './strategies/roles';
+import { getUser } from './decorators/get-user.decorator';
+import { UserEntity } from './entities/user.entity';
 
 @ApiTags('Registro de Usuarios')
 @Controller('user-register/')
@@ -61,6 +63,16 @@ export class AuthController {
   loginUser(@Body() loginDto: LoginUserDto) {
     return this.authService.loginUser(loginDto);
   }
+
+
+  @Auth(ValidRoles.USER)
+  @Get("user_info")
+  getInfoUser(
+    @getUser() user:UserEntity,
+    ) {
+    return this.authService.inforUser(user.id)
+  }
+
 
   @Auth(ValidRoles.USER)
   @Get('zzz')

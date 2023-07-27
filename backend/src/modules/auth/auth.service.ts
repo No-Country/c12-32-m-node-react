@@ -19,4 +19,8 @@ export class UserService extends BaseService<UserEntity> {
   async loginUser(loginDto: LoginUserDto) {
     return await this.userRepository.loginUser(loginDto);
   }
+
+  async inforUser(user_id:string){
+    return await this.userRepository.getInfoUser(user_id)
+  }
 }
