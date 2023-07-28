@@ -55,10 +55,10 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
       <div>
         <div className="lg:flex">
           <div
-            className="rounded-tl-full rounded-bl-full overflow-hidden w-full md:w-1/2 h-screen bg-cover bg-center"
+            className="mobile:relative rounded-tl-full rounded-bl-full overflow-hidden w-full md:w-1/2 lg:h-screen bg-cover bg-center"
             style={{
               backgroundImage: `url(${chicaPerro1})`,
-              borderRadius: "0 50% 50% 0",
+              borderRadius: "0 900px 900px 0",
               minHeight: "100vh",
               backgroundSize: "cover",
             }}
@@ -75,7 +75,7 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
             >
               ¡ENCONTREMOS TU MASCOTA!
             </h1>
-            <div className="text-2xl font-semibold text-gray-600 text-center md:block hidden">
+            <div className=" text-2xl font-semibold text-gray-600 text-center md:block hidden">
               Si tienes una mascota perdida, sabes <br />
               información de alguna MASCOTA publicada,
               <br />
@@ -83,15 +83,6 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
               <br />
               coméntanos y ayuda a que cada mascota esté en su HOGAR
               <br />
-              <NavLink to="/login">
-                <button
-                  className="py-2 px-10 rounded-full bg-customBgNavBar hover:bg-gray-300 transition-all duration-300 text-white lg:mt-8 mt-[-100rem]"
-                  style={{ letterSpacing: "0.1em" }}
-                  onClick={handleCreateAdClick}
-                >
-                  ¡ÚNETE!
-                </button>
-              </NavLink>
               {/* Código del icono de flecha hacia abajo */}
               <div className="absolute bottom-8">
                 <button
@@ -102,6 +93,15 @@ const SectionHomeOne: React.FC<SectionHomeProps> = ({
                 </button>
               </div>
             </div>
+            <NavLink to="/login">
+              <button
+                className="mobile:absolute mobile:top-[50rem] mobile:text-black text-2xl font-semibold  py-2 mobile:ml-20 px-10 rounded-full bg-customBgNavBar hover:bg-gray-300 transition-all duration-300 text-white lg:mt-8 "
+                style={{ letterSpacing: "0.1em" }}
+                onClick={handleCreateAdClick}
+              >
+                ¡ÚNETE!
+              </button>
+            </NavLink>
           </div>
         </div>
         {showButton && (
