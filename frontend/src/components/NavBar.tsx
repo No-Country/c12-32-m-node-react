@@ -21,6 +21,7 @@ import { auth } from "./firebase/config";
 import ShowOnLogin, { ShowOnLogout } from "./ShowOnLogin";
 import { LuLogOut } from "react-icons/lu";
 import LOGO from "../assets/LOGO.png";
+import { MdClose, MdOutlineMenu } from "react-icons/md";
 
 const NavBar = () => {
   const [shouldShowSections, setShouldShowSections] = useState(false);
@@ -29,10 +30,8 @@ const NavBar = () => {
   const navigate = useNavigate();
   const isLoggedIn1 = useSelector(selectIsLoggedIn);
   const userEmail = useSelector(selectEmail);
-
-  const handleMenuClick = () => {
-    setShouldShowSections(true);
-  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCloseIcon, setIsCloseIcon] = useState(false);
 
   const handleCreateAdClickCrearAnuncio = () => {
     if (!isLoggedIn1) {
@@ -77,9 +76,18 @@ const NavBar = () => {
     setShouldShowSections(false);
   };
 
+  const handleLogo = () => {
+    setShouldShowSections(false);
+    navigate("/");
+  };
+
   const handleCreateAdClickProfile = () => {
     setShouldShowSections(false);
     navigate("/profile");
+  };
+
+  const handleMenuClick = () => {
+    setShouldShowSections(true);
   };
 
   //Monitoreando usuario logueado
@@ -133,111 +141,100 @@ const NavBar = () => {
     }
   };
 
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-    const [showColoredSquare, setShowColoredSquare] = useState(false);
-
-   const handleMobileMenuClick = () => {
-     setShowMobileMenu(!showMobileMenu);
+  const handleMenuClickMobile = () => {
+    setIsMenuOpen(!isMenuOpen);
+    setIsCloseIcon(!isCloseIcon);
   };
-  
-    const handleButtonSquareClick = () => {
-      setShowColoredSquare(!showColoredSquare);
-    };
 
   return (
     <header>
-      <nav className="flex items-center justify-between px-10 bg-customBgNavBar h-20">
-        <div className="Logo w-[6rem] flex items-center justify-center text-white">
-          <NavLink to="/">
-            <img src={LOGO} alt="logo" className="mr-10" />
-          </NavLink>
-        </div>
-        <div className="md:hidden flex items-center mb-[-6rem] ml-[5rem]">
-          <button
-            className={`text-black hover:text-gray-700 ${
-              showColoredSquare ? "bg-customBgNavBar " : ""
-            }`}
-            onClick={() => {
-              handleMobileMenuClick();
-              handleButtonSquareClick();
-            }}
-          >
-            <svg
-              className="h-6 w-6 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 5h18a1 1 0 010 2H3a1 1 0 010-2zm0 7h18a1 1 0 010 2H3a1 1 0 010-2zm0 7h18a1 1 0 010 2H3a1 1 0 010-2z"
+      <nav className="flex w-full h-[5rem] px-10 z-30  text-white bg-customBgNavBar">
+        <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-[-1rem] py-2">
+          <div className="flex items-center">
+            <div className="Logo w-[6rem] mobile:ml-[-2rem] lg:flex items-center justify-center text-white">
+              <img
+                src={LOGO}
+                alt="logo"
+                className="mr-10 cursor-pointer"
+                onClick={handleLogo}
               />
-            </svg>
-          </button>
-        </div>
-        <ul
-          className={`${
-            showMobileMenu ? "block" : "hidden"
-          } md:flex md:space-x-10 md:text-lg mt-8 md:mt-0 absolute md:relative left-0 md:left-auto top-16 md:top-0 bg-customBgNavBar md:bg-transparent z-10`}
-        >
-          <li>
-            <a
-              href="#inicio"
-              className="hover:text-white transition-all duration-300"
-              onClick={handleMenuClick}
-            >
-              Inicio
-            </a>
-          </li>
-          <li>
-            <a
-              href="#quienesSomos"
-              className="hover:text-white transition-all duration-300"
-              onClick={handleMenuClick}
-            >
-              Nosotros
-            </a>
-          </li>
-          <li>
-            <a
-              href="#comoFunciona"
-              className="hover:text-white transition-all duration-300"
-              onClick={handleMenuClick}
-            >
-              ¿Cómo Funciona?
-            </a>
-          </li>
-          <li>
-            <NavLink
-              to="/adoption"
-              className="hover:text-white transition-all duration-300"
-              onClick={handleCreateAdClick}
-            >
-              Anuncios
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/adoption"
-              className="hover:text-white transition-all duration-300"
-              onClick={handleCreateAdClick}
-            >
-              ¡Adópta!
-            </NavLink>
-          </li>
-        </ul>
-        <section className="flex gap-10">
+            </div>
+          </div>
           <button
-            className="border-3 rounded-full h-[40px] w-40 bg-customBtnNavBar1 transition-all duration-300 text-white hover:text-gray-700 font-semibold text-lg"
-            onClick={handleCreateAdClickCrearAnuncio}
+            id="navAction"
+            className="lg:hidden text-black mr-[13rem] duration-300 ease-in-out absolute top-12 right-0"
+            onClick={handleMenuClickMobile}
           >
-            Crear Anuncio
+            {isCloseIcon ? <MdClose size={35} /> : <MdOutlineMenu size={35} />}
           </button>
+
+          <div
+            className={`h-30 bg-customBgNavBar ml-6 text-center flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 text-white p-4 lg:p-0 z-20 ${
+              isMenuOpen ? "" : "hidden"
+            }`}
+            id="nav-content"
+          >
+            <ul className="ml-10 text-lg list-reset lg:flex justify-center flex-1 items-center">
+              <li className="mr-10">
+                <a
+                  href="#inicio"
+                  className="hover:text-white transition-all duration-300 text-black"
+                  onClick={handleMenuClick}
+                >
+                  Inicio
+                </a>
+              </li>
+              <li className="mr-10">
+                <a
+                  href="#quienesSomos"
+                  className="hover:text-white transition-all duration-300 text-black"
+                  onClick={handleMenuClick}
+                >
+                  Nosotros
+                </a>
+              </li>
+              <li className="mr-10">
+                <a
+                  href="#comoFunciona"
+                  className="hover:text-white transition-all duration-300 text-black"
+                  onClick={handleMenuClick}
+                >
+                  ¿Cómo Funciona?
+                </a>
+              </li>
+              <li className="mr-10">
+                <NavLink
+                  to="/adoption"
+                  className="hover:text-white transition-all duration-300 text-black"
+                  onClick={handleCreateAdClick}
+                >
+                  Anuncios
+                </NavLink>
+              </li>
+              <NavLink
+                to="/adoption"
+                className="hover:text-white mobile:ml-1 flex transition-all duration-300 text-black"
+                onClick={handleCreateAdClick}
+              >
+                ¡Adópta!
+              </NavLink>
+            </ul>
+            <button
+              id="navAction"
+              className="mx-auto text-xl lg:mx-0 mobile:text-black bg-buttonNavBarGreen text-white font-bold rounded-full mt-4 lg:mt-0 lg:py-3 lg:px-8 mobile:py-2 mobile:px-2 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+              onClick={handleCreateAdClickCrearAnuncio}
+            >
+              Crear anuncio
+            </button>
+          </div>
+        </div>
+        <section className="flex gap-10">
           <ShowOnLogin>
             <button>
-              <p className="font-semibold mt-2 ">
+              <p className="font-semibold mt-2  mobile:text-xs lg:ml-10 mobile:ml-[12rem]">
                 Hola!{" "}
                 <a
-                  className="text-custombtnNavBarName ml-1 hover:text-white transition-all duration-300"
+                  className="text-white ml-1 hover:text-customHoverNAv transition-all duration-300"
                   onClick={handleCreateAdClickProfile}
                 >
                   {displayName || userEmail}
@@ -247,22 +244,17 @@ const NavBar = () => {
           </ShowOnLogin>
           <ShowOnLogout>
             <div
-              className="bg-white w-12 h-12 rounded-full"
+              className="bg-white lg:w-12 lg:h-12 mobile:w-12 lg:mr-1 lg:ml-10 mobile:h-12 rounded-full mr-[-2rem] mobile:ml-10 mobile:mt-5 lg:mt-3"
               onClick={handleCreateAdClick}
             >
               <NavLink to={"/login"}>
                 <img src={userRegister} alt="" />
               </NavLink>
-              {/* <NavLink to="/profile">
-              <div className="flex items-center justify-center ">
-                <p>Info del Perfil</p>
-              </div>
-            </NavLink> */}
             </div>
           </ShowOnLogout>
           <ShowOnLogin>
             <button
-              className="transition-all duration-300 text-black hover:text-white font-semibold text-lg pt-2"
+              className="mr-3 transition-all duration-300  text-black hover:text-white font-semibold text-lg pt-2"
               onClick={logoutUser}
             >
               <LuLogOut size={20} />
@@ -270,6 +262,7 @@ const NavBar = () => {
           </ShowOnLogin>
         </section>
       </nav>
+
       {shouldShowSections && (
         <>
           <SectionHomeOne handleCreateAdClick={handleCreateAdClick} />
