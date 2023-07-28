@@ -21,8 +21,7 @@ export class PetsService extends BaseService<PetsEntity> {
     private readonly configService: ConfigService,
     private readonly userRepository: UserRepository,
     private readonly petsRepository: PetsRepository,
-    private readonly petsEntity:Repository<PetsEntity>,
-    private readonly petsImagesRepository:Repository<PetsImagesEntity>,
+    private readonly petsImagesRepository:PetsImagesRepository,
     private readonly petsCommentRepository:Repository<PostCommentEntity>,
     private readonly dataSource:DataSource,
     ) {
