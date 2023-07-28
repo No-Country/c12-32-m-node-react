@@ -1,22 +1,18 @@
 import { useForm } from "react-hook-form";
-import imgGoogle from '../assets/googleImg.png'
+import imgGoogle from "../assets/googleImg.png";
 import { useState, SyntheticEvent } from "react";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFillEyeSlashFill } from "react-icons/bs";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { LuMailQuestion } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-} from "firebase/auth";
+import axios from "axios";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "./firebase/config";
 import "sweetalert2/dist/sweetalert2.min.css";
 import swal from "sweetalert";
 import { SET_ACTIVE_USER } from "./redux/slice/authSlice";
 import { useDispatch } from "react-redux";
-
 
 interface LoginProps {
   verifyAccess: () => void;
@@ -29,7 +25,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
 
   const submit = (data: any) => {
     axios
-      .post("http://localhost:7500/api/v1/user-register/login", data, {
+      .post("https://petsociety.up.railway.app/user-register/login", data, {
         headers: {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`,
         },
@@ -37,7 +33,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
       .then((res) => {
         console.log(res.data);
         if (res.data.status === false) {
-          swal("Error", 'Contraseña Incorrecta', "error");
+          swal("Error", "Contraseña Incorrecta", "error");
         }
         const token = res.data.data.token;
         // Almacenar el token en las cookies
@@ -64,7 +60,8 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
         navigate("/profile");
       })
       .catch((error) => {
-        console.error(error.message)
+        console.error(error.message);
+        swal("Error", "Comandos Invalidaos", "error");
       });
   };
 
@@ -95,12 +92,14 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
     <div className="static">
       <form
         onSubmit={handleSubmit(submit)}
-        className="  bg-gray-300  my-8 w-96 h-height-Login 
-                m-auto px-8 rounded-lg flex-col justify-center  absolute top-24 bottom-0 right-20"
+        className="bg-gray-300  my-8 lg:w-96 w-72 lg:h-height-Login h-96 m-auto lg:px-8 px-4 rounded-lg flex-col justify-center
+                     absolute top-24 right-20"
       >
-        <h2 className="text-center text-3xl py-12">¡INGRESA!</h2>
+        <h2 className="text-center lg:text-3xl text-xl lg:py-12 py-7">
+          ¡INGRESA!
+        </h2>
         <div>
-          <section className="inputContainer my-2">
+          <section className="inputContainer mb-2">
             <div className="flex items-center gap-1">
               <label htmlFor="email">Mail </label>
               <LuMailQuestion />
@@ -128,7 +127,11 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
                 onClick={(e) => showPassw(e)}
                 className="h-auto bg-transparent text-3xl absolute right-2 bottom-1/2 translate-y-1/2"
               >
-                {showPassword ? <IoEyeSharp className="" /> : <BsFillEyeSlashFill />}
+                {showPassword ? (
+                  <IoEyeSharp className="" />
+                ) : (
+                  <BsFillEyeSlashFill />
+                )}
               </button>
             </div>
           </section>
@@ -138,7 +141,7 @@ const FormLogin: React.FC<LoginProps> = ({ verifyAccess }) => {
             Acceder
           </button>
         </div>
-        <p className="text-center m-4">o</p>
+        <p className="text-center lg:m-4 m-1">o</p>
         <div
           className="bg-white w-56 py-2 rounded-full flex justify-center items-center m-auto hover:cursor-pointer"
           onClick={signInWithGoogle}
