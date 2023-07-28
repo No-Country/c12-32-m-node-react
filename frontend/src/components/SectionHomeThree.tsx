@@ -2,16 +2,24 @@ import { CgArrowLongDown } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import huellas from "../assets/huellas.png";
+import { IoIosArrowDown } from "react-icons/io";
 
 const SectionHomeThree = () => {
+  const [open, setOpen] = useState(false);
+  console.log(open);
+
   useEffect(() => {
     Aos.init({
       duration: 1800,
       offset: 100,
     });
   }, []);
+
+  const handlemobile = () => {
+    setOpen(true);
+  };
 
   return (
     <>
@@ -20,7 +28,7 @@ const SectionHomeThree = () => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
         style={{ marginTop: "-400px" }}
-        className="w-full"
+        className="w-full hidden md:block"
       >
         <path
           fill="#7f7f7f"
@@ -30,7 +38,7 @@ const SectionHomeThree = () => {
       </svg>
       <div
         id="comoFunciona"
-        className="flex flex-col items-center"
+        className="flex mobile:h-screen flex-col items-center pt-10 mt-[-2rem]"
         style={{
           backgroundImage: `url(${huellas})`,
           backgroundSize: "cover",
@@ -40,40 +48,62 @@ const SectionHomeThree = () => {
       >
         {/* Código del contenido 3 */}
         <h1
-          className="text-5xl text-white font-semibold  text-center mb-4"
+          className="mobile:hidden lg:text-5xl mobile:text-2xl text-white font-semibold  text-center mt-20"
           data-aos="fade-down"
           data-aos-delay="500"
         >
           ¿COMO FUNCIONA PET SOCIETY?
         </h1>
-        <div className="flex justify-between w-[85rem] pl-[5rem] pt-[4rem] text-white">
+        <h1
+          className="lg:hidden mobile:mr-30 lg:text-5xl mobile:text-3xl text-white font-semibold  text-center mt-20"
+          data-aos="fade-down"
+          data-aos-delay="500"
+        >
+          ¿COMO FUNCIONA
+          <br />
+          PET SOCIETY?
+        </h1>
+        <div className="mobile:ml-[55rem] flex justify-between w-[85rem] pl-[5rem] pt-[4rem] text-white">
           <p
-            className="text-3xl font-semibold"
+            className="text-3xl mobile:text-[15px] font-semibold"
             data-aos="fade-down"
             data-aos-delay="600"
           >
             ¡Si tu MASCOTA se perdió!
+            <IoIosArrowDown
+              className="lg:hidden mt-[-2rem] ml-[13rem]"
+              onClick={handlemobile}
+            />
           </p>
+
           <p
-            className="text-3xl font-semibold text-white"
+            className="mobile:hidden text-3xl font-semibold text-white"
             data-aos="fade-down"
             data-aos-delay="700"
           >
             ¡Si tienes una MASCOTA para adopción!
           </p>
         </div>
-        <div className="p-4 mt-4 flex justify-between w-[90rem]">
-          <p className="bg-customBgNavBar rounded-full p-4 pl-10 ml-[5rem] w-[24rem] text-white">
+        <p
+          className="text-3xl lg:hidden  mobile:text-[15px]  mobile:mr-[3rem] mobile:mt-10 font-semibold text-white"
+          data-aos="fade-down"
+          data-aos-delay="700"
+        >
+          ¡Si quieres adoptar una MASCOTA!{" "}
+          <IoIosArrowDown className="lg:hidden mt-[-2rem] ml-[16rem]" />
+        </p>
+        <div className="mobile:hidden p-4 mt-4 flex justify-between w-[90rem]">
+          <p className="bg-customBgNavBar text-lg rounded-full p-4 pl-10 ml-[5rem] w-[24rem] text-white">
             Crea un Anuncio con la mayor Información <br />
             para una búsqueda con mayor precisión
           </p>
-          <p className="bg-customBgNavBar rounded-full p-4 pl-10 w-[24rem] mr-[10rem] text-white">
+          <p className="bg-customBgNavBar text-lg rounded-full p-4 pl-10 w-[24rem] mr-[10rem] text-white">
             Crea un anuncio con la mayor información <br />
             para una búsqueda con mayor precisión
           </p>
         </div>
 
-        <div className="mt-[-1/2rem] flex justify-center w-[90rem]">
+        <div className="mobile:hidden mt-[-1/2rem] flex justify-center w-[90rem]">
           <p className="w-1/2 text-center pr-[20rem] ml-[5rem]">
             <CgArrowLongDown className="text-4xl mx-auto ml-[11rem] text-white" />
           </p>
@@ -81,12 +111,12 @@ const SectionHomeThree = () => {
             <CgArrowLongDown className="text-4xl mx-auto ml-[18rem] text-white" />
           </p>
         </div>
-        <div className="p-4 mb-0 flex justify-between w-[90rem]">
-          <p className="bg-customBgNavBar rounded-full p-4 pl-10 w-[24rem] ml-[5rem] text-white">
+        <div className="mobile:hidden p-4 mb-0 flex justify-between w-[90rem]">
+          <p className="bg-customBgNavBar text-lg rounded-full p-4 pl-10 w-[24rem] ml-[5rem] text-white">
             Publícalo y revisa constantemente los <br />
             nuevos comentarios
           </p>
-          <p className="bg-customBgNavBar rounded-full p-4 pl-10 w-[24rem] mr-[10rem] text-white">
+          <p className="bg-customBgNavBar text-lg rounded-full p-4 pl-10 w-[24rem] mr-[10rem] text-white">
             Publícalo y espera que algún nuevo <br />
             compañero se contacte
           </p>
@@ -94,15 +124,16 @@ const SectionHomeThree = () => {
 
         <div className="flex flex-col items-center pt-[6rem] ">
           <p
-            className="ml-[-2rem] text-3xl font-semibold text-center mb-4 text-white"
+            className="mobile:mt-[-3rem]  mobile:text-[15px]  mobile:text-center mobile:ml-[-4rem] text-3xl font-semibold text-center mb-4 text-white"
             data-aos="fade-down"
             data-aos-delay="500"
           >
-            ¡Si sabes info de alguna MASCOTA!
+            ¡Si sabes info de alguna MASCOTA!{" "}
+            <IoIosArrowDown className="lg:hidden mt-[-2rem] ml-[18rem]" />
           </p>
         </div>
-        <div className="p-4 mt-4 ml-[-1rem] flex justify-center">
-          <p className="bg-customBgNavBar rounded-full p-4 pl-10 w-[24rem] text-white">
+        <div className="mobile:hidden p-4 mt-4 ml-[-1rem] flex justify-center">
+          <p className="bg-customBgNavBar text-lg rounded-full p-4 pl-10 w-[24rem] text-white">
             Revisa los{" "}
             <Link to={"/anuncios"} className="text-gray-800">
               Anuncios
@@ -112,13 +143,13 @@ const SectionHomeThree = () => {
           </p>
         </div>
 
-        <div className="mt-[-1/2rem] mr-[1rem]">
+        <div className="mobile:hidden mt-[-1/2rem] mr-[1rem]">
           <p className=" text-center">
             <CgArrowLongDown className="text-4xl mx-auto text-white" />
           </p>
         </div>
-        <div className="p-4 mb-0 flex justify-center w-[75rem] ml-[-1rem]">
-          <p className="bg-customBgNavBar rounded-full p-4 pl-10 w-[24rem] mb-80 text-white">
+        <div className="mobile:hidden p-4 mb-0 flex justify-center w-[75rem] ml-[-1rem]">
+          <p className="bg-customBgNavBar text-lg rounded-full p-4 pl-10 w-[24rem] mb-80 text-white">
             Déjale un comentario al dueño o <br />
             contáctalo a su teléfono
           </p>
