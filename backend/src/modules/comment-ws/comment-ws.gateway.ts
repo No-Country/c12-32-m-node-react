@@ -28,7 +28,7 @@ async handleConnection(client: Socket) {
     return
   }
   
-  this.commentWsService.registerClient(client,payload.id)
+  await this.commentWsService.registerClient(client,payload.id)
   this.wss.emit("clients-updated",this.commentWsService.getConnectClients())
   } catch (error) {
     return client.disconnect()
@@ -47,9 +47,9 @@ handleDisconnect(client: Socket) {
 
 @SubscribeMessage("comment_publication")
 async handlermessageFromCLient(client:Socket,payload_comment:messageInterface){
- const user_id=this.commentWsService.getUserId(client.id)
- await this.petsServices.createComment(payload_comment.pet_id,user_id,payload_comment.comment)
+ await this.petsServices.createComment(payload_comment.pet_id,payload_comment.user_id,payload_comment.comment)
  const Publication=await this.petsServices.findOne({where:{id:payload_comment.pet_id}})
+ console.log(Publication)
  this.wss.emit("comment-complete",
    Publication
   )

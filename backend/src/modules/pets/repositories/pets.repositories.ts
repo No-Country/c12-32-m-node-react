@@ -103,7 +103,7 @@ export class PetsRepository extends BaseRepository<PetsEntity> {
     }
   }
 
-  
+
   async findPets(id: string) {
     const ruta = this._main + ' /findPets';
     const respuesta = await this.petsEntity.find({

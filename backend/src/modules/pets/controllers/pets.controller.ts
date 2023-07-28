@@ -64,6 +64,11 @@ export class PetsController {
     return this.petsService.findAll();
   }
 
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.petsService.deletePets(id);
+  }
+
   @Auth(ValidRoles.USER)
   @Get('pets_user_all/:id')
   findPetsByuser(
@@ -110,8 +115,4 @@ export class PetsController {
     return this.petsService.update({ id }, updateAuthDto);
   }
 */
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.petsService.delete({ id });
-  }
 }

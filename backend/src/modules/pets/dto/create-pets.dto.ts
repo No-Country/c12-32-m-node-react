@@ -8,17 +8,6 @@ export class CreatePetsDto {
   @ApiProperty({ description: "title" })
   @IsString()
   title: string;
-  
-  @IsNotEmpty()
-  @ApiProperty({ description: 'post_description' })
-  @IsString()
-  post_description: string;
-  
-  @IsNotEmpty()
-  @ApiProperty({ description: 'is_found' })
-  is_found: any;
- 
-  likes: number;
  
   @IsNotEmpty()
   @ApiProperty({ description: 'pet_name' })

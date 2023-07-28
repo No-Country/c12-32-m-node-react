@@ -44,6 +44,7 @@ getUserId( socketId: string ) {
 
 private checkUserConnection(user:UserEntity){
 for (const clientId of Object.keys(this.connectedClients)){
+    
     const connectedClient=this.connectedClients[clientId]
     if(connectedClient.user.id===user.id){
         connectedClient.socket.disconnect();

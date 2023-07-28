@@ -16,12 +16,6 @@ export class PetsEntity extends BasedEntity {
   @Column({ type: 'varchar' })
   title: string;
 
-  @Column({ type: 'varchar' })
-  post_description: string;
-
-  @Column({ type: 'bool', default: null, nullable: true })
-  is_found: boolean;
-
   @Column({ type: 'int',nullable: true,default:0  })
   likes: number;
 
@@ -56,12 +50,15 @@ export class PetsEntity extends BasedEntity {
   user: UserEntity;
 
   @OneToMany(() => PetsImagesEntity, (images) => images.pets, {
+    cascade:true,
+    onDelete:"CASCADE",
     eager: true,
   })
   images: PetsImagesEntity[];
 
 
   @OneToMany(() => PostCommentEntity, (comment) => comment.pets,{
+    onDelete:"CASCADE",
     eager:true
   })
   comments: PostCommentEntity[];

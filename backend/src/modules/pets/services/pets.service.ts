@@ -21,11 +21,25 @@ export class PetsService extends BaseService<PetsEntity> {
     private readonly configService: ConfigService,
     private readonly userRepository: UserRepository,
     private readonly petsRepository: PetsRepository,
-    private readonly petsImagesRepository:PetsImagesRepository,
+    private readonly petsEntity:Repository<PetsEntity>,
+    private readonly petsImagesRepository:Repository<PetsImagesEntity>,
     private readonly petsCommentRepository:Repository<PostCommentEntity>,
     private readonly dataSource:DataSource,
     ) {
     super(petsRepository);
+  }
+
+  async deletePets(pets_id:string){
+    const pets=await this.petsRepository.findOne({where:{id:pets_id}})
+    /*
+    const finish1=await this.petsImagesRepository.delete({pets:{id:pets_id}})
+    if(!finish1) return"error"
+    const finish2= await this.petsCommentRepository.delete({pets:{id:pets_id}})
+    if(!finish2) return"error"
+    */
+    const finish3=await this.petsRepository.remove(pets)
+    if(!finish3) return"error"
+    return {message:"borrado con exito"}
   }
 
   async createComment(pets_id:string,user_id:string,commentsBody:string){
@@ -66,12 +80,10 @@ try {
         public_id: `${file.filename}`,
       });
       const secureUrl = `${photoUrl.secure_url}`;
-      let{images=[secureUrl],is_found,...dataBody}=data
-      if(is_found=="false")is_found=false
-      if(is_found=="true")is_found=true
+      let{images=[secureUrl],...dataBody}=data
+
       const petsPost=this.petsRepository.create({
         ...dataBody,
-        is_found,
         user
       })
       await this.petsRepository.save(petsPost)
