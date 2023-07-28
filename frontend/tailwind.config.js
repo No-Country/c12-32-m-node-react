@@ -10,7 +10,11 @@ module.exports = {
         356: "68rem",
         "height-Login": "30rem",
         widthFormRegister: "42rem",
-        heightPublicationVh: "89vh",
+        heightPublicationVh: "77vh",
+        heightLoginMobile: "70vh",
+        heightRegisterMobile: "65vh",
+        heightCards: "370px",
+        heightCardProfile: "340px",
       },
       colors: {
         customBlue: "#84a7ae",
@@ -22,7 +26,11 @@ module.exports = {
         customBtnNavBar1: "#bbdcca",
         custombtnNavBarName: "#896fb3",
         custombgSectionTwo: "#b2d7c3",
-        customBgComment: "#b2d7c3"
+        customBgComment: "#b2d7c3",
+        customBgLoginMobile: "#d1d5dbc4",
+        customHoverGreen: "#61B397",
+        buttonNavBarGreen: "#adc6b6",
+        customHoverNAv: "#e0eee5",
       },
       fontSize: {
         FsTextPublicationTime: "10px",
