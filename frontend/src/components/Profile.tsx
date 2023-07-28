@@ -1,16 +1,32 @@
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { IoLocationSharp, IoMaleOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import animalCard from "../../src/assets/img-card.jpg";
-import gatito from "../assets/gatito.jpg";
-import perro from "../assets/perro.jpg";
 import { useEffect } from "react";
 import Aos from "aos";
 import { useSelector } from "react-redux";
 import { selectEmail } from "./redux/slice/authSlice";
 import { useForm } from "react-hook-form";
-import { FaRegEdit } from "react-icons/fa";
-import {useState} from "react"
+import { FaArrowCircleLeft, FaRegEdit } from "react-icons/fa";
+import { useState } from "react";
+import { BsGenderFemale } from "react-icons/bs";
+
+interface Animal {
+  images: any;
+  id: string;
+  url: any;
+  pet_name: string;
+  direction: string;
+  gender: string;
+}
+
+interface ProfileUser {
+  name: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  city: string;
+  id: string;
+}
 
 const Profile = () => {
   const {
@@ -20,6 +36,7 @@ const Profile = () => {
   } = useForm();
 
   const userEmail = useSelector(selectEmail);
+
   const getEmailRegex = (): RegExp =>
     /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
@@ -49,7 +66,7 @@ const Profile = () => {
     if (!/\d/.test(value)) {
       return "La contraseña debe contener al menos un número";
     }
-    return true; 
+    return true;
   };
 
   useEffect(() => {
@@ -59,23 +76,82 @@ const Profile = () => {
     });
   }, []);
 
-    const [userImg, setUserImg] = useState<string | null>(null);
+  Aos.init({
+    duration: 1800,
+    offset: 100,
+  });
 
-    // Función para manejar la carga de imágenes
-    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files?.[0];
+  const [animals, setAnimals] = useState<Animal[]>([]);
 
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setUserImg(reader.result as string);
-        };
-        reader.readAsDataURL(file);
-      }
-    };
+  useEffect(() => {
+    fetch("https://petsociety.up.railway.app/api/v1/pets")
+      .then((response) => response.json())
+      .then((data) => {
+        // Actualizar el estado 'animals' con los primeros 3
+        const primerosTres = data.slice(0, 3);
+        setAnimals(primerosTres);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los datos:", error);
+      });
+    console.log("ANIMALS:", animals[0]?.url);
+  }, []);
+
+  const [infoPerfil, setInfoPerfil] = useState<ProfileUser | null>(null);
+
+  const getTokenFromLocalStorage = (): string | null => {
+    return localStorage.getItem("token");
+  };
+
+  //Tomar info del usuario pasando el Token
+  useEffect(() => {
+    fetch(`https://petsociety.up.railway.app/user-register/user_info`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setInfoPerfil(data);
+      })
+      .catch((error) => {
+        console.error("Error al obtener los datos:", error);
+      });
+    // console.log("PERFIL USER", infoPerfil.name);
+  }, []);
+
+  const [userImg, setUserImg] = useState<string | null>(null);
+
+  // Función para manejar la carga de imágenes
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUserImg(reader.result as string);
+        localStorage.setItem("userProfileImage", reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  useEffect(() => {
+    const storedImage = localStorage.getItem("userProfileImage");
+    if (storedImage) {
+      setUserImg(storedImage);
+    }
+  }, []);
 
   return (
-    <div className="flex justify-center items-center h-screen ">
+    <div className="flex justify-center items-center h-auto ">
+      <div className="mb-auto ml-[-5rem]">
+        <NavLink to={"/"}>
+          <button className="ml-auto left-0 m-4 bg-customBgNavBar hover:bg-gray-500 text-white font-medium py-2 px-4 rounded-md">
+            <FaArrowCircleLeft size={25} />
+          </button>
+        </NavLink>
+      </div>
       <div className="w-5/6">
         <div className="text-center mb-8">
           <h1
@@ -93,167 +169,80 @@ const Profile = () => {
                 <h2 className="text-2xl  mb-[-1rem] ml-40 mt-[0rem] first-line:">
                   Mis Publicaciones
                 </h2>
-                <section className="my-10 m-auto grid grid-cols-3 w-9/12 gap-8 bg-red justify-center ml-[0rem]">
-                  <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
-                    <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
-                      <img
-                        src={animalCard}
-                        alt=""
-                        className="rounded-md h-full"
-                      />
-                    </div>
-                    <div className="card w-11/12 h-32  flex flex-col justify-between">
-                      <div className="w-12/12 flex items-center justify-between">
-                        <div className="flex items-center">
-                          <h3 className="my-2 font-bold text-lg">TOBY</h3>
-                          <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
+                <section className="my-10 m-auto grid grid-cols-3 w-11/12 gap-8 bg-red justify-center ml-[0rem]">
+                  {animals.map((animal) => (
+                    <div
+                      key={animal.id}
+                      className="card bg-customBtnNavBar1 w-full h-heightCardProfile rounded-md flex flex-col items-center py-3"
+                    >
+                      <div className=" overflow-hidden w-11/12 h-3/4 bg-slate-100 rounded-md">
+                        <img
+                          src={animal.images[0]?.url ?? "default-image-url.jpg"}
+                          alt={animal.images[0]?.url ?? "Default Image"}
+                          className="rounded-md h-full w-full object-cover"
+                        />
+                      </div>
+                      <div className="w-11/12 h-32  flex flex-col justify-between">
+                        <div className="w-12/12 flex items-center justify-between">
+                          <div className="flex items-center">
+                            <h3 className="my-2 font-bold text-2xl">
+                              {animal.pet_name}
+                            </h3>
+                            {animal.gender === "macho" ? (
+                              <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
+                            ) : (
+                              <BsGenderFemale className="mx-2 text-2xl text-pink-500" />
+                            )}
+                          </div>
+                          <NavLink
+                            to={`/animalInfo/${animal.id}`}
+                            className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
+                          >
+                            Info +
+                          </NavLink>
                         </div>
-                        <NavLink
-                          to={"/animalInfo"}
-                          className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
-                        >
-                          Info +
-                        </NavLink>
-                      </div>
-                      <div className="flex">
-                        <IoLocationSharp className="text-red-600" />
-                        <p className="text-xs font-semibold mx-1">
-                          Recoleta, Provincia de Buenos Aires, ARG
-                        </p>
-                      </div>
-                      <div className="flex items-center">
-                        <AiOutlineClockCircle />
-                        <span className="text-xs my-3 text-slate-500 mx-1">
-                          Publicado hace 2 semanas
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
-                    <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
-                      <img src={gatito} alt="" className="rounded-lg h-full" />
-                    </div>
-                    <div className="w-11/12 h-32 flex flex-col justify-between">
-                      <div className="w-12/12 flex items-center justify-between">
-                        <div className="flex items-center">
-                          <h3 className="my-2 font-bold text-lg">TADEO</h3>
-                          <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
+                        <div className="flex">
+                          <IoLocationSharp className="text-red-600" />
+                          <p className="text-sm font-semibold mx-1">
+                            {animal.direction}
+                          </p>
                         </div>
-                        <NavLink
-                          to={"/animalInfo"}
-                          className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
-                        >
-                          Info +
-                        </NavLink>
-                      </div>
-                      <div className="flex">
-                        <IoLocationSharp className="text-red-600" />
-                        <p className="text-xs font-semibold mx-1">
-                          Recoleta, Provincia de Buenos Aires, ARG
-                        </p>
-                      </div>
-                      <div className="flex items-center">
-                        <AiOutlineClockCircle />
-                        <span className="text-xs my-3 text-slate-500 mx-1">
-                          Publicado hace 2 semanas
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
-                    <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
-                      <img src={perro} alt="" className="rounded-md h-full" />
-                    </div>
-                    <div className="w-11/12 h-32 flex flex-col justify-between">
-                      <div className="w-12/12 flex items-center justify-between">
                         <div className="flex items-center">
-                          <h3 className="my-2 font-bold text-lg">REX</h3>
-                          <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
+                          <AiOutlineClockCircle />
+                          <span className="text-xs my-3 text-slate-500 mx-1">
+                            Publicado hace 2 semanas
+                          </span>
                         </div>
-                        <NavLink
-                          to={"/animalInfo"}
-                          className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
-                        >
-                          Info +
-                        </NavLink>
-                      </div>
-                      <div className="flex">
-                        <IoLocationSharp className="text-red-600" />
-                        <p className="text-xs font-semibold mx-1">
-                          Recoleta, Provincia de Buenos Aires, ARG
-                        </p>
-                      </div>
-                      <div className="flex items-center">
-                        <AiOutlineClockCircle />
-                        <span className="text-xs my-3 text-slate-500 mx-1">
-                          Publicado hace 2 semanas
-                        </span>
                       </div>
                     </div>
-                  </div>
-                  <div className="card bg-customBgSectionTwo w-full h-full rounded-md flex flex-col items-center py-3">
-                    <div className="w-11/12 h-3/4 bg-slate-100 rounded-md">
-                      <img
-                        src={animalCard}
-                        alt=""
-                        className="rounded-md h-full"
-                      />
-                    </div>
-                    <div className="w-11/12 h-32 flex flex-col justify-between">
-                      <div className="w-12/12 flex items-center justify-between">
-                        <div className="flex items-center">
-                          <h3 className="my-2 font-bold text-lg">CARLOS</h3>
-                          <IoMaleOutline className="mx-2 text-2xl text-blue-700" />
-                        </div>
-                        <NavLink
-                          to={"/animalInfo"}
-                          className="border-3 rounded-full h-[24px] w-20 text-center bg-customBgNavBar hover:bg-gray-700 transition-all duration-300 text-white font-semibold"
-                        >
-                          Info +
-                        </NavLink>
-                      </div>
-                      <div className="flex">
-                        <IoLocationSharp className="text-red-600" />
-                        <p className="text-xs font-semibold mx-1">
-                          Recoleta, Provincia de Buenos Aires, ARG
-                        </p>
-                      </div>
-                      <div className="flex items-center">
-                        <AiOutlineClockCircle />
-                        <span className="text-xs my-3 text-slate-500 mx-1">
-                          Publicado hace 2 semanas
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  ))}
                 </section>
               </div>
             </div>
           </div>
-          <div className="w-1/3">
+          <div className="w-1/3 pb-[5rem]">
             <div className="flex flex-col justify-center items-center mb-8">
-              <div className="relative rounded-full w-24 h-24 overflow-hidden">
-                 {userImg ? (
-        <img src={userImg} alt="Foto de perfil" />
-      ) : (
-                    <div className=" bg-gray-200 w-24 h-24">        
-        </div>
+              <div className="relative rounded-full w-24 h-24 overflow-hidden ">
+                {userImg ? (
+                  <img src={userImg} alt="Foto de perfil" />
+                ) : (
+                  <div className=" bg-gray-200 w-24 h-24"></div>
                 )}
                 <div className="absolute bottom-0 right-9 cursor-pointer">
-        <label htmlFor="fileInput">
-          <FaRegEdit className="text-white" />
-        </label>
-        <input
-          type="file"
-          id="fileInput"
-          accept="image/*"
-          style={{ display: 'none' }}
-          onChange={handleImageChange}
-        />
-      </div>                 
+                  <label htmlFor="fileInput">
+                    <FaRegEdit className="text-white" />
+                  </label>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={(e) => handleImageChange(e)}
+                  />
+                </div>
               </div>
               <div>
-                <div className="mb-4">
+                <div className="">
                   <label
                     className="block mb-2 text-sm font-semibold"
                     htmlFor="nombre"
@@ -262,6 +251,7 @@ const Profile = () => {
                   </label>
                   <input
                     className="w-full px-4 py-2 border border-gray-300 rounded"
+                    value={infoPerfil ? infoPerfil?.name : ""}
                     type="text"
                     id="name"
                     {...register("name", {
@@ -272,7 +262,7 @@ const Profile = () => {
                     <p className="text-red-500">{errors.name.message}</p>
                   )}
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 mt-3">
                   <label
                     className="block mb-2 text-sm font-semibold"
                     htmlFor="apellido"
@@ -283,6 +273,7 @@ const Profile = () => {
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="text"
                     id="lastName"
+                    value={infoPerfil ? infoPerfil?.lastName : ""}
                     {...register("lastName", {
                       required: "Apellido es requerido",
                     })}
@@ -302,6 +293,7 @@ const Profile = () => {
                   <input
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="email"
+                    value={infoPerfil ? infoPerfil?.email : ""}
                     id="mail"
                     {...register("mail", {
                       required: "Correo electrónico es requerido",
@@ -354,6 +346,7 @@ const Profile = () => {
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="tel"
                     id="phone"
+                    value={infoPerfil ? infoPerfil?.phone : ""}
                     {...register("phone", {
                       pattern: /^\d{10}$/,
                     })}
@@ -375,6 +368,7 @@ const Profile = () => {
                     className="w-full px-4 py-2 border border-gray-300 rounded"
                     type="text"
                     id="direction"
+                    value={animals.length > 0 ? animals[0].direction : ""}
                     {...register("direction", {
                       required: "La dirección es obligatoria",
                     })}
