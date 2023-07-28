@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
-import imgGoogle from "../assets/googleImg.png";
 import axios from "axios";
 import "sweetalert2/dist/sweetalert2.min.css";
 import swal from "sweetalert";
 import { useEffect, useState } from "react";
-import { GiConfirmed } from 'react-icons/gi';
-import { VscError } from 'react-icons/vsc';
-import '../App.css'
+import { GiConfirmed } from "react-icons/gi";
+import { VscError } from "react-icons/vsc";
+import "../App.css";
 
 interface RegisterProps {
   verifyAccess: () => void;
@@ -23,7 +22,6 @@ interface FormData {
 }
 
 const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
-
   const { handleSubmit, register, watch } = useForm<FormData>();
 
   const [passwordConf, setPasswordConf] = useState<string>("");
@@ -32,28 +30,35 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
   const submit = (data: FormData) => {
     if (isConfirmed) {
       axios
-        .post("http://localhost:7500/api/v1/user-register/create", data)
+        .post("https://petsociety.up.railway.app/user-register/create", data)
         .then((res) => {
           console.log(res.data);
           swal("Excelente", "Registro exitoso!", "success");
-          verifyAccess()
+          verifyAccess();
         })
         .catch((error) => {
           console.log(error);
         });
     } else {
-      swal("Error", 'La contraseña de confirmación no coincide con la contraseña original.', "error")
+      swal(
+        "Error",
+        "La contraseña de confirmación no coincide con la contraseña original.",
+        "error"
+      );
     }
   };
 
   useEffect(() => {
     const password = watch("password");
     const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    setIsConfirmed(passwordConf === password && passwordPattern.test(password) && passwordPattern.test(passwordConf));
+    setIsConfirmed(
+      passwordConf === password &&
+        passwordPattern.test(password) &&
+        passwordPattern.test(passwordConf)
+    );
   }, [passwordConf, watch]);
 
   function restrictToNumbers(event: React.KeyboardEvent<HTMLInputElement>) {
-
     if (
       event.key === "ArrowLeft" ||
       event.key === "ArrowRight" ||
@@ -63,23 +68,23 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
       return;
     }
 
-
     if (event.key && !/\d/.test(event.key)) {
       event.preventDefault();
     }
   }
 
-
   return (
-    <div className="static">
+    <div className="static h-auto">
       <form
-        className="h-heightPublicationVh w-widthFormRegister bg-customBgRegister absolute top-20 right-0"
+        className="lg:h-heightPublicationVh h-heightLoginMobile lg:w-widthFormRegister bg-gray-300 absolute top-20 right-0"
         onSubmit={handleSubmit(submit)}
       >
-        <h2 className="text-center text-3xl py-12">¡Regístrate!</h2>
-        <div className="flex">
-          <div className=" h-auto w-6/12 px-6">
-            <section className="my-4">
+        <h2 className="text-center text-3xl lg:py-12 lg:pt-8 pt-2">
+          ¡Regístrate!
+        </h2>
+        <div className="lg:flex">
+          <div className=" h-auto lg:w-6/12 px-6">
+            <section className=" lg:my-4">
               <label htmlFor="name">Nombre *</label>
               <input
                 type="text"
@@ -89,7 +94,7 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
                 required
               />
             </section>
-            <section className="my-4">
+            <section className=" lg:my-4">
               <label htmlFor="email">Mail *</label>
               <input
                 type="email"
@@ -99,7 +104,7 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
                 required
               />
             </section>
-            <section className="my-4">
+            <section className=" lg:my-4">
               <label htmlFor="pass">Contraseña *</label>
               <div className="relative">
                 <input
@@ -108,22 +113,22 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
                   className="w-full rounded-lg bg-white h-7 border border-gray-800"
                   {...register("password")}
                   required
-                  onBlur={() => { }}
+                  onBlur={() => {}}
                 />
-                {
-                  isConfirmed ?
-                    (<GiConfirmed className="absolute top-1/2 -translate-y-1/2 right-2 text-green-700 text-xl" />) : (
-                      <VscError className="absolute top-1/2 -translate-y-1/2 right-2 text-red-600 text-xl" />
-                    )
-                }
+                {isConfirmed ? (
+                  <GiConfirmed className="absolute top-1/2 -translate-y-1/2 right-2 text-green-700 text-xl" />
+                ) : (
+                  <VscError className="absolute top-1/2 -translate-y-1/2 right-2 text-red-600 text-xl" />
+                )}
               </div>
               {!isConfirmed && (
                 <p className="text-red-600 text-FsTextWarningPassword">
-                  La contraseña debe tener al menos 8 caracteres y contener combinaciones de números, letras mayúsculas y minúsculas.
+                  La contraseña debe tener al menos 8 caracteres y contener
+                  combinaciones de números, letras mayúsculas y minúsculas.
                 </p>
               )}
             </section>
-            <section className="my-2">
+            <section className=" lg">
               <label htmlFor="address">Dirección</label>
               <input
                 type="text"
@@ -133,8 +138,8 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
               />
             </section>
           </div>
-          <div className="h-auto w-6/12 px-6">
-            <section className="my-4">
+          <div className="h-auto lg:w-6/12  px-6">
+            <section className=" lg:my-4">
               <label htmlFor="lastName">Apellido *</label>
               <input
                 type="text"
@@ -144,20 +149,20 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
                 required
               />
             </section>
-            <section className="my-4">
+            <section className=" lg:my-4">
               <label htmlFor="phone">Teléfono</label>
               <input
                 type="number"
                 id="phone"
                 inputMode="tel"
-                onFocus={(e) => e.currentTarget.type = "text"}
+                onFocus={(e) => (e.currentTarget.type = "text")}
                 className="w-full rounded-lg bg-white h-7 border border-gray-800 custom-number-input"
                 {...register("phone")}
                 onWheel={(e) => e.currentTarget.blur()}
                 onKeyDown={(e) => restrictToNumbers(e)}
               />
             </section>
-            <section className="my-4">
+            <section className=" lg:my-4">
               <label htmlFor="pass"> Repetir Contraseña *</label>
               <div className="flex relative">
                 <input
@@ -166,14 +171,13 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
                   value={passwordConf}
                   className="w-full rounded-lg bg-white h-7 border border-gray-800"
                   onChange={(e) => setPasswordConf(e.target.value)}
-                  onBlur={() => { }}
+                  onBlur={() => {}}
                 />
-                {
-                  isConfirmed ?
-                    (<GiConfirmed className="absolute top-1/2 -translate-y-1/2 right-2 text-green-700 text-xl" />) : (
-                      <VscError className="absolute top-1/2 -translate-y-1/2 right-2 text-red-600 text-xl" />
-                    )
-                }
+                {isConfirmed ? (
+                  <GiConfirmed className="absolute top-1/2 -translate-y-1/2 right-2 text-green-700 text-xl" />
+                ) : (
+                  <VscError className="absolute top-1/2 -translate-y-1/2 right-2 text-red-600 text-xl" />
+                )}
               </div>
             </section>
           </div>
@@ -183,11 +187,7 @@ const FormUserRegister: React.FC<RegisterProps> = ({ verifyAccess }) => {
             Registrarse
           </button>
         </div>
-        <p className="text-center mt-4 mb-4">o</p>
-        <div className="bg-white w-56 py-2 rounded-full flex justify-center items-center m-auto hover:cursor-pointer">
-          <img src={imgGoogle} alt="imgGoogle" className="mr-2" />
-          <p className="text-center">Continuar Con Google</p>
-        </div>
+        <p className="text-center lg:my-4 my-3">o</p>
         <div>
           <p className="text-xs text-center my-3">
             ¿Ya tienes Cuenta?{" "}
